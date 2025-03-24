@@ -1,30 +1,33 @@
-class Category {
+import * as Memory from "./jsonManager.js";
 
-    static categoryList:Category[] = [];
+export class Category {
+
+    static categoryList = [];
 
     constructor(name, description, parentCategory = null) {
         this._name = name;
         this._description = description;
         this._parentCategory = parentCategory;
         Category.categoryList.push(this);
+        Memory.save()
     }
 
-    get name():string {
+    get name() {
         return this._name;
     }
-    set name(value:string) {
+    set name(value) {
         this._name = value;
     }
-    get description():string {
+    get description() {
         return this._description;
     }
-    set description(value:string) {
+    set description(value) {
         this._description = value;
     }
-    get parentCategory(): Category {
+    get parentCategory() {
         return this._parentCategory;
     }
-    set parentCategory(value: Category) {
+    set parentCategory(value) {
         this._parentCategory = value;
     }
 }

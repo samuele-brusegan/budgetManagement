@@ -1,0 +1,32 @@
+[
+	{
+		"name": "General",
+		"description": "A general transaction",
+		"parentCategoryID": -1
+	},
+	{
+		"name": "Food",
+		"description": "Groceries, restaurants, and other food expenses",
+		"parentCategoryID": -1
+	},
+	{
+		"name": "Transportation",
+		"description": "Fuel, public transport, and other transportation costs",
+		"parentCategoryID": -1
+	},
+	{
+		"name": "Entertainment",
+		"description": "Movies, concerts, and other entertainment expenses",
+		"parentCategoryID": -1
+	},
+	{
+		"name": "Utilities",
+		"description": "Electricity, water, gas, and other utility bills",
+		"parentCategoryID": -1
+	},
+	{
+		"name": "Salary",
+		"description": "Monthly salary",
+		"parentCategoryID": -1
+	}
+]

@@ -1,10 +1,12 @@
 import * as Controller from "../controllers/Controller.js";
+import * as ContoUI from "./ContoUI.js";
+import {showConto} from "./ContoUI.js";
+import * as Memory from "../models/jsonManager.js";
 
 export * from "./ContoUI.js";
 
-// ---------------------------- View -> Controller ----------------------------
 
-let conto = Controller.getCurrAccount();
+// ---------------------------- View -> Controller ----------------------------
 
 let newTransaction = document.getElementById("newTransaction");
 let newAccount = document.getElementById("newAccount");
@@ -17,10 +19,10 @@ newAccount.addEventListener("click", () => {
 });
 newTransaction.addEventListener("click", () => {
     let value = document.getElementById("value");
-    let type = document.getElementById("type");
+    let type = document.getElementById("category");
     let date = document.getElementById("date");
     Controller.createTransaction(value.value, type.value, date.value);
-    conto.showConto("conto");
+    ContoUI.showConto(Controller.getCurrAccount(), "conto");
 });
 
 
@@ -29,57 +31,60 @@ newTransaction.addEventListener("click", () => {
 export function updateAccountList(accounts, currentAccount) {
     let out = "";
     accounts.forEach((account, i) => {
-        out += "<div class='btn "+((account === currentAccount)?"btn-primary":"btn-secondary")+" m-3 accountBtn' uid='"+i+"'>"+account.name+"</div>";
+        out += "<div class='btn "+((account.id === currentAccount.id)?"btn-primary":"btn-secondary")+" m-3 accountAddBtn' uid='"+i+"'>"+account.name+"</div>";
+        out += "<div class='btn btn-danger m-3 accountRemBtn' uid='"+i+"'>Remove "+account.name+"</div>";
+        out += "<br/>"
+        Controller.saveData()
     });
-    document.querySelectorAll(".accountBtn").forEach(btn => {
+    document.getElementById("accountSelector").innerHTML = out;
+    document.querySelectorAll(".accountAddBtn").forEach(btn => {
         btn.addEventListener("click", () => {
             let id = btn.getAttribute("uid");
             Controller.setCurrAccount(accounts[id]);
-        })
-    })
-    document.getElementById("accountSelector").innerHTML = out;
+        });
+    });
+    document.querySelectorAll(".accountRemBtn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            let id = btn.getAttribute("uid");
+            Controller.remConto(accounts[id].id);
+        });
+    });
+    showConto(currentAccount)
 }
 
 // ------------------------------- View -> DOM --------------------------------
 
-/*const idList = [
-    {
-        "id": 0,
-        "showAdd":"showAddAcc",
-        "isShown":true,
-        "display": "displayAcc"
-    },
-    {
-        "id": 1,
-        "showAdd":"showAddTra",
-        "isShown":false,
-        "display": "displayTra"
-    }
-];
+const showIdsArr = ["showAddAcc", "showAddTra", "showAddCat", "showAddAcl"     ];
+const isShownArr = [    true    ,    false    ,    false    ,     false        ];
+const displayArr = ["displayAcc", "displayTra", "displayCat", "accountSelector"];
 
-for (let i = 0; i < 2; i++) {
-    let showAdd = document.getElementById(idList[i]["showAdd"]);
-    let isShown = idList[i]["isShown"];
-    let display = document.getElementById(idList[i]["display"]);
-
-    function showHide (display, isShown, i) {
-        console.log(i)
-        display.hidden = (isShown); idList[i]["isShown"] = !isShown;
-    }
-
-    showAdd.addEventListener("click", () =>{
-        showHide(display, isShown, idList[i]["id"]);
+function setupToggler(index) {
+    let showAdd = document.getElementById(showIdsArr[index]);
+    let isShown =  isShownArr[index];
+    let display = document.getElementById(displayArr[index]);
+    display.hidden = !isShown;
+    
+    showAdd.addEventListener("click", () => {
+        display.hidden = (isShown); isShown = !isShown;
     });
-}*/
+}
 
-let showAddAcc = document.getElementById("showAddAcc"); let accIsShown =  true; let accDisplay = document.getElementById("displayAcc");
-let showAddTra = document.getElementById("showAddTra"); let traIsShown = false; let traDisplay = document.getElementById("displayTra");
+for (let i = 0; i < displayArr.length; i++) {
+    setupToggler(i);
+}
+/*let showAddAcc = document.getElementById("showAddAcc"); let accIsShown =  true; let accDisplay = document.getElementById("displayAcc"); accDisplay.hidden = !accIsShown;
+let showAddTra = document.getElementById("showAddTra"); let traIsShown = false; let traDisplay = document.getElementById("displayTra"); traDisplay.hidden = !traIsShown;
 
 showAddAcc.addEventListener("click", () => {
     accDisplay.hidden = (accIsShown); accIsShown = !accIsShown;
 });
 showAddTra.addEventListener("click", () => {
     traDisplay.hidden = (traIsShown); traIsShown = !traIsShown;
-});
+});*/
 
 // ----------------------------------------------------------------------------
+// ------------------------------- View <- DOM --------------------------------
+document.getElementById("deleteAll").addEventListener("click", () => {
+    Memory.warn_deleteAll();
+    Controller.loadData()
+});

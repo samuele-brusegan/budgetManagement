@@ -1,14 +1,24 @@
 import * as UI from "../view/ui.js";
+import * as Memory from "./jsonManager.js"
 
 export class Conto {
     static id = 0;
+    static accountList = [];
+    
     constructor(name, value=0, currency="€") {
         this._transactionList = [];
         this._name = name;
-        this._value = value;
+        this._value = parseInt(value);
         this._currency = currency;
-        this._id = Conto.id;
-        Conto.id++;
+        if(this._name !== "__none__") {
+            this._id = Conto.id;
+            Conto.id++;
+            Conto.accountList.push(this);
+            // console.log(Conto.accountList);
+            Memory.save()
+        } else {
+            this._id = -101;
+        }
     }
 
     addTransaction(transaction) {
@@ -28,7 +38,7 @@ export class Conto {
                 console.log("2: "+this.value);
             }
         });
-        console.log(foundedIndex);
+        // console.log(foundedIndex);
         this.transactionList.splice(foundedIndex, 1);
         console.log(this.transactionList);
         UI.showConto(this, "conto");
