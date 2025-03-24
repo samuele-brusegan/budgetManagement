@@ -1,4 +1,4 @@
-import * as UI from "../ui/ui.js";
+import * as UI from "../view/ui.js";
 
 export class Conto {
     static id = 0;

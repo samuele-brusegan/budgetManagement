@@ -1,4 +1,5 @@
 import * as Controller from "../controllers/Controller.js";
+
 export * from "./ContoUI.js";
 
 // ---------------------------- View -> Controller ----------------------------
@@ -25,13 +26,51 @@ newTransaction.addEventListener("click", () => {
 
 // ---------------------------- View <- Controller ----------------------------
 
-/*
- * Random text
- * random Text
- * @#@]!$*§&$%
- */
+export function updateAccountList(accounts, currentAccount) {
+    let out = "";
+    accounts.forEach((account, i) => {
+        out += "<div class='btn "+((account === currentAccount)?"btn-primary":"btn-secondary")+" m-3 accountBtn' uid='"+i+"'>"+account.name+"</div>";
+    });
+    document.querySelectorAll(".accountBtn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            let id = btn.getAttribute("uid");
+            Controller.setCurrAccount(accounts[id]);
+        })
+    })
+    document.getElementById("accountSelector").innerHTML = out;
+}
 
 // ------------------------------- View -> DOM --------------------------------
+
+/*const idList = [
+    {
+        "id": 0,
+        "showAdd":"showAddAcc",
+        "isShown":true,
+        "display": "displayAcc"
+    },
+    {
+        "id": 1,
+        "showAdd":"showAddTra",
+        "isShown":false,
+        "display": "displayTra"
+    }
+];
+
+for (let i = 0; i < 2; i++) {
+    let showAdd = document.getElementById(idList[i]["showAdd"]);
+    let isShown = idList[i]["isShown"];
+    let display = document.getElementById(idList[i]["display"]);
+
+    function showHide (display, isShown, i) {
+        console.log(i)
+        display.hidden = (isShown); idList[i]["isShown"] = !isShown;
+    }
+
+    showAdd.addEventListener("click", () =>{
+        showHide(display, isShown, idList[i]["id"]);
+    });
+}*/
 
 let showAddAcc = document.getElementById("showAddAcc"); let accIsShown =  true; let accDisplay = document.getElementById("displayAcc");
 let showAddTra = document.getElementById("showAddTra"); let traIsShown = false; let traDisplay = document.getElementById("displayTra");
