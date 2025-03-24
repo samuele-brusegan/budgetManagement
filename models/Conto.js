@@ -14,7 +14,6 @@ export class Conto {
             this._id = Conto.id;
             Conto.id++;
             Conto.accountList.push(this);
-            // console.log(Conto.accountList);
             Memory.save()
         } else {
             this._id = -101;
@@ -27,7 +26,6 @@ export class Conto {
     }
     removeTransaction(id) {
         let foundedIndex;
-        //console.log(JSON.stringify(this.transactionList));
         this.transactionList.forEach((elem, i) => {
             console.log("'"+elem.id+"'");
             console.log("'"+id+"'");
@@ -38,15 +36,10 @@ export class Conto {
                 console.log("2: "+this.value);
             }
         });
-        // console.log(foundedIndex);
         this.transactionList.splice(foundedIndex, 1);
         console.log(this.transactionList);
         UI.showConto(this, "conto");
     }
-
-    // showConto(id){
-    //     UI.showConto(this, id);
-    // }
 
     get name() {
         return this._name;

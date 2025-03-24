@@ -72,15 +72,6 @@ function setupToggler(index) {
 for (let i = 0; i < displayArr.length; i++) {
     setupToggler(i);
 }
-/*let showAddAcc = document.getElementById("showAddAcc"); let accIsShown =  true; let accDisplay = document.getElementById("displayAcc"); accDisplay.hidden = !accIsShown;
-let showAddTra = document.getElementById("showAddTra"); let traIsShown = false; let traDisplay = document.getElementById("displayTra"); traDisplay.hidden = !traIsShown;
-
-showAddAcc.addEventListener("click", () => {
-    accDisplay.hidden = (accIsShown); accIsShown = !accIsShown;
-});
-showAddTra.addEventListener("click", () => {
-    traDisplay.hidden = (traIsShown); traIsShown = !traIsShown;
-});*/
 
 // ----------------------------------------------------------------------------
 // ------------------------------- View <- DOM --------------------------------

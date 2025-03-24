@@ -9,7 +9,7 @@ let currentAccount;
 loadData()
 
 //TODO: rem test
-if(true){
+if(false){
     Conto.accountList = [new Conto("Acc0"), new Conto("Acc1"), new Conto("Acc2"), new Conto("Acc3")];
     currentAccount = Conto.accountList[0];
     UI.updateAccountList(Conto.accountList, currentAccount);
@@ -21,9 +21,7 @@ export function createTransaction(value, type, date) {
     UI.showConto(currentAccount);
 }
 export function addConto(name, value, currency){
-    let newAccount = new Conto(name, value, currency);
-    // Conto.accountList.push(newAccount);
-    currentAccount = newAccount;
+    currentAccount = new Conto(name, value, currency);
     UI.updateAccountList(Conto.accountList, currentAccount);
 }
 export function remConto(id){
