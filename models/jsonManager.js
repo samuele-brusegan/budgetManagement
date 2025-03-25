@@ -16,7 +16,10 @@ export function load(){
                 elem["_currency"],
                 elem["_transactionList"]
             );
-        });
+        });/*
+        if(accountListJSON.size() === 0){
+            Controller.setCurrAccount(new Conto("Account", 0, '$'))
+        }*/
     }
     
     
