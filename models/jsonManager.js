@@ -1,5 +1,6 @@
 import {Conto} from "./Conto.js";
 import {Category} from "./Category.js";
+import * as Controller from "../controllers/Controller.js";
 
 const fileName = "data"
 export function save(){
@@ -16,16 +17,17 @@ export function load(){
                 elem["_currency"],
                 elem["_transactionList"]
             );
-        });/*
-        if(accountListJSON.size() === 0){
+        });
+        if(Conto.accountList.length === 0){
             Controller.setCurrAccount(new Conto("Account", 0, '$'))
-        }*/
+        }
     }
     
     
     Category.categoryList = JSON.parse(localStorage.getItem(fileName+"_categories"));
 }
 export function warn_deleteAll(){
+    console.log("DELETED!")
     localStorage.setItem(fileName+"_accountList", "{}");
     localStorage.setItem(fileName+"_categories",  "{}");
 }

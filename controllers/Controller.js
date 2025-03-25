@@ -1,7 +1,7 @@
 import {Transaction} from "../models/Transaction.js";
 import {Conto} from "../models/Conto.js";
 import * as UI from "../view/ui.js";
-import * as jsonMng from "../models/jsonManager.js";
+import * as Memory from "../models/jsonManager.js";
 
 const nullAccount = new Conto("__none__", -1, "(-)");
 let currentAccount;
@@ -9,7 +9,9 @@ let currentAccount;
 loadData()
 
 //TODO: rem test
+// noinspection PointlessBooleanExpressionJS
 if(false){
+    // noinspection UnreachableCodeJS
     Conto.accountList = [new Conto("Acc0"), new Conto("Acc1"), new Conto("Acc2"), new Conto("Acc3")];
     currentAccount = Conto.accountList[0];
     UI.updateAccountList(Conto.accountList, currentAccount);
@@ -32,17 +34,22 @@ export function remConto(id){
     UI.updateAccountList(Conto.accountList, currentAccount);
 }
 
-export function getAccounts(){ return Conto.accountList; }
+// export function getAccounts(){ return Conto.accountList; }
 export function getCurrAccount(){ return currentAccount; }
 export function setCurrAccount(account){
     currentAccount = account;
     UI.updateAccountList(Conto.accountList, currentAccount);
 }
 export function saveData(){
-    jsonMng.save()
+    Memory.save()
 }
 export function loadData(){
-    jsonMng.load()
-    UI.updateAccountList(Conto.accountList, currentAccount ?? Conto.accountList[0] ?? nullAccount);
-    UI.showConto(currentAccount ?? Conto.accountList[0] ?? nullAccount);
+    Memory.load()
+    currentAccount = currentAccount ?? Conto.accountList[0] ?? nullAccount;
+    UI.updateAccountList(Conto.accountList, currentAccount);
+    UI.showConto(currentAccount);
+}
+export function delData() {
+    Memory.warn_deleteAll();
+    loadData()
 }

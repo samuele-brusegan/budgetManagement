@@ -1,7 +1,6 @@
 import * as Controller from "../controllers/Controller.js";
 import * as ContoUI from "./ContoUI.js";
 import {showConto} from "./ContoUI.js";
-import * as Memory from "../models/jsonManager.js";
 
 export * from "./ContoUI.js";
 
@@ -73,9 +72,48 @@ for (let i = 0; i < displayArr.length; i++) {
     setupToggler(i);
 }
 
-// ----------------------------------------------------------------------------
 // ------------------------------- View <- DOM --------------------------------
 document.getElementById("deleteAll").addEventListener("click", () => {
-    Memory.warn_deleteAll();
-    Controller.loadData()
+    Controller.delData()
+});
+
+let isEditable = false;
+document.getElementById("renameAccount").addEventListener("click", () => {
+    function replace(id, newTagName) {
+        let label = document.getElementById(id);
+        let textBox = document.createElement(newTagName);
+        let oldValue = label.value ?? label.innerText;
+        let index;
+        
+        // Copy the children
+        while (label.firstChild) {
+            textBox.appendChild(label.firstChild); // *Moves* the child
+        }
+        
+        // Copy the attributes
+        for (index = label.attributes.length - 1; index >= 0; --index) {
+            textBox.attributes.setNamedItem(label.attributes[index].cloneNode());
+        }
+        
+        // Replace it
+        label.parentNode.replaceChild(textBox, label);
+        textBox.value = oldValue;
+        return textBox;
+    }
+    
+    if(!isEditable) {
+        let textBox = replace("contoHead", "input");
+        let conto = Controller.getCurrAccount();
+        console.log(conto)
+        conto.name = textBox.value;
+        console.log("Now showning ", conto)
+        showConto(conto);
+    } else {
+        let newNameObj = replace("contoHead", "h5")
+        let conto = Controller.getCurrAccount();
+        conto.name = newNameObj.value;
+        console.log("Now showning ", conto)
+        showConto(conto)
+    }
+    isEditable = !isEditable;
 });
