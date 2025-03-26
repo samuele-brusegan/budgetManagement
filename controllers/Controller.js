@@ -95,37 +95,38 @@ export function delData() {
 }
 
 /**
+ * Carica i dati da un file JSON e li aggiunge a una lista.
+ * @param {string} path - Il percorso del file JSON.
+ * @param {Array} list - La lista a cui aggiungere i dati.
+ * @param {class} Class - La classe degli oggetti da creare.
+ */
+function loadFromJSON(path, list, Class) {
+    fetch(path) // Usa il percorso relativo al file JSON
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok'); // Se la risposta non è ok, lancia un errore
+            }
+            return response.json(); // Converte la risposta in JSON
+        })
+        .then(data => {
+            // Qui puoi usare i dati del JSON
+            console.log("data", data)
+            data.forEach(obj => { // Per ogni oggetto nel JSON
+                let newObj = new Class(obj.name, obj.description, obj.parentCategoryID); // Crea un nuovo oggetto della classe specificata
+                list.push(newObj) // Aggiunge l'oggetto alla lista
+            });
+            Memory.save() // Salva i dati nella memoria persistente
+        })
+        .catch(error => {
+            console.error('Errore durante il caricamento del file JSON:', error);
+        });
+}
+
+/**
  * Inizializza la memoria caricando i dati dai file JSON.
  */
 function initMemory() {
-    /**
-     * Carica i dati da un file JSON e li aggiunge a una lista.
-     * @param {string} path - Il percorso del file JSON.
-     * @param {Array} list - La lista a cui aggiungere i dati.
-     * @param {class} Class - La classe degli oggetti da creare.
-     */
-    function loadFromJSON(path, list, Class) {
-        fetch(path) // Usa il percorso relativo al file JSON
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok'); // Se la risposta non è ok, lancia un errore
-                }
-                return response.json(); // Converte la risposta in JSON
-            })
-            .then(data => {
-                // Qui puoi usare i dati del JSON
-                console.log("data", data)
-                data.forEach(obj => { // Per ogni oggetto nel JSON
-                    let newObj = new Class(obj.name, obj.description, obj.parentCategoryID); // Crea un nuovo oggetto della classe specificata
-                    list.push(newObj) // Aggiunge l'oggetto alla lista
-                });
-                Memory.save() // Salva i dati nella memoria persistente
-            })
-            .catch(error => {
-                console.error('Errore durante il caricamento del file JSON:', error);
-            });
-    }
-    loadFromJSON("defaultData/categories.json", Category.categoryList, Category);
+        loadFromJSON("defaultData/categories.json", Category.categoryList, Category);
     loadFromJSON("defaultData/payOptions.json", PaymentOptions.optionList, PaymentOptions);
     loadData()
 }
