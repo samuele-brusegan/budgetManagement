@@ -1,12 +1,13 @@
 export function showConto(conto, id="conto"){
 	document.getElementById(id+"Head").innerHTML = "<h3>"+conto.name+"</h3>";
 	
+	// let out = "Value: " + conto.value+conto.currency;
 	let out = "Value: " + conto.value+conto.currency;
-	if(conto.transactionList.length !== 0){
+	if(conto.transactions.length !== 0){
 		out += "<br/>Transactions: <table class='table table-success' style='border-radius: 1rem'>";
 		out += "<tr>"+"<td><b>Value</b></td>"+"<td><b>Tag</b></td>"+"<td><b>Date</b></td>"+"<td></td>"+"</tr>";
 		
-		conto.transactionList.forEach((elem, i) => {
+		conto.transactions.forEach((elem, i) => {
 			out+="<tr>";
 			out += "<td>"+elem.value+"</td>";
 			out += "<td>"+elem.category+"</td>";
@@ -24,7 +25,7 @@ export function showConto(conto, id="conto"){
 
 	buttons?.forEach((btn) => {
 		btn.addEventListener("click", () => {
-			conto.removeTransaction(btn.getAttribute("uid"));
+			conto.remTransaction(btn.getAttribute("uid"));
 		});
 	});
 }

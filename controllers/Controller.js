@@ -94,6 +94,7 @@ export function delData() {
     loadData() // Ricarica i dati (che saranno vuoti)
 }
 
+// noinspection JSValidateJSDoc,JSClosureCompilerSyntax
 /**
  * Carica i dati da un file JSON e li aggiunge a una lista.
  * @param {string} path - Il percorso del file JSON.
@@ -112,7 +113,7 @@ function loadFromJSON(path, list, Class) {
             // Qui puoi usare i dati del JSON
             console.log("data", data)
             data.forEach(obj => { // Per ogni oggetto nel JSON
-                let newObj = new Class(obj.name, obj.description, obj.parentCategoryID); // Crea un nuovo oggetto della classe specificata
+                let newObj = new Class(obj.name, obj.description, obj["parentCategoryID"]); // Crea un nuovo oggetto della classe specificata
                 list.push(newObj) // Aggiunge l'oggetto alla lista
             });
             Memory.save() // Salva i dati nella memoria persistente
@@ -126,7 +127,7 @@ function loadFromJSON(path, list, Class) {
  * Inizializza la memoria caricando i dati dai file JSON.
  */
 function initMemory() {
-        loadFromJSON("defaultData/categories.json", Category.categoryList, Category);
-    loadFromJSON("defaultData/payOptions.json", PaymentOptions.optionList, PaymentOptions);
+    loadFromJSON("models/defaultData/categories.json", Category.categoryList, Category);
+    loadFromJSON("models/defaultData/payOptions.json", PaymentOptions.optionList, PaymentOptions);
     loadData()
 }

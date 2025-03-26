@@ -25,7 +25,9 @@ export function load(){
                 elem["_transactionList"]
             );
         });
+        console.log("LEN:", Conto.accountList)
         if(Conto.accountList.length === 0){
+            console.log("Adding new default account")
             Controller.setCurrAccount(new Conto("Account", 0, '$'))
         }
     }
@@ -61,7 +63,7 @@ export function load() {
         data = JSON.parse(data); // Converte i dati da JSON a oggetto
         Conto.accountList.length = 0; // Svuota la lista dei conti
         data.accounts.forEach(account => { // Per ogni conto nei dati
-            let newAccount = new Conto(account._name, account._startCash, account._currency); // Crea un nuovo conto
+            let newAccount = new Conto(account._name, account._value, account._currency); // Crea un nuovo conto
             newAccount._id = account._id; // Ripristina l'ID
             newAccount._transactions = account._transactions; // Ripristina le transazioni
         });

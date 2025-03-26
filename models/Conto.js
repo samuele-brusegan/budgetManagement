@@ -10,18 +10,22 @@ export class Conto {
     /**
      * Costruttore per la classe Conto.
      * @param {string} name - Il nome del conto.
-     * @param {number} [startCash=0] - Il saldo iniziale del conto (opzionale, default: 0).
+     * @param {number} [value=0] - Il saldo iniziale del conto (opzionale, default: 0).
      * @param {string} [currency='€'] - La valuta del conto (opzionale, default: '€').
      */
-    constructor(name, startCash = 0, currency = '€') {
-        this._name = name; // Nome del conto
-        this._startCash = startCash; // Saldo iniziale
-        this._currency = currency; // Valuta
-        this._transactions = []; // Lista delle transazioni del conto
-        this._id = Conto.accountCounter; // ID univoco del conto
-        Conto.accountCounter++; // Incrementa il contatore per il prossimo conto
-        Conto.accountList.push(this); // Aggiunge il conto alla lista statica
-        Memory.save(); // Salva i dati nella memoria persistente
+    constructor(name, value=0, currency="€") {
+        this._transactionList = [];
+        this._name = name;
+        this._value = parseInt(value);
+        this._currency = currency;
+        if(this._name !== "__none__") {
+            this._id = Conto.accountCounter;
+            Conto.accountCounter++;
+            Conto.accountList.push(this);
+            Memory.save()
+        } else {
+            this._id = -101;
+        }
     }
     
     /**
@@ -29,7 +33,7 @@ export class Conto {
      * @param {Transaction} transaction - La transazione da aggiungere.
      */
     addTransaction(transaction) {
-        this._transactions.push(transaction); // Aggiunge la transazione alla lista
+        this._transactionList.push(transaction); // Aggiunge la transazione alla lista
         Memory.save(); // Salva i dati nella memoria persistente
     }
     
@@ -38,8 +42,8 @@ export class Conto {
      * @param {Transaction} transaction - La transazione da rimuovere.
      */
     remTransaction(transaction){
-        this._transactions.forEach((trans, i) => {
-            if(trans.id === transaction.id) this._transactions.splice(i, 1);
+        this._transactionList.forEach((trans, i) => {
+            if(trans.id === transaction.id) this._transactionList.splice(i, 1);
         });
         Memory.save(); // Salva i dati nella memoria persistente
     }
@@ -64,16 +68,16 @@ export class Conto {
      * Restituisce il saldo del conto.
      * @returns {number} Il saldo del conto.
      */
-    get startCash() {
-        return this._startCash;
+    get value() {
+        return this._value;
     }
     
     /**
      * Imposta il saldo del conto.
      * @param {number} value - Il nuovo saldo del conto.
      */
-    set startCash(value) {
-        this._startCash = value;
+    set value(value) {
+        this._value = value;
     }
     
     /**
@@ -97,7 +101,7 @@ export class Conto {
      * @returns {Array<Transaction>} La lista delle transazioni.
      */
     get transactions() {
-        return this._transactions;
+        return this._transactionList;
     }
     
     /**

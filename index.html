@@ -17,12 +17,16 @@
         <title>WebApp</title>
     </head>
     <body>
+        <div class="alert alert-danger m-3" role="alert">Ricordati di implementare l'aggiunta di nuove <b>categorie</b> e di aggiungerle alla memoria persistente</div>
+        <div class="alert alert-danger m-3" role="alert">Ricordati di implementare i <b>metodi di pagamento</b></div>
         <div class="container">
             <div class="card text-bg-info mb-3 mt-3">
                 <div class="card-header">Conto selezionato:</div>
                 <div class="card-body">
-                    <h5 class="card-title" id="contoHead">Light card title</h5>
-                    <button class="btn btn-primary" id="renameAccount">Rename</button>
+                    <div class="d-flex justify-content-start">
+                        <h5 class="card-title" style="width: fit-content" id="contoHead">Light card title</h5>
+                        <button class="btn btn-primary ms-3" id="renameAccount">Rename</button>
+                    </div>
                     <p class="card-text" id="contoBody">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
             </div>
@@ -32,6 +36,7 @@
             <button class="btn btn-outline-secondary" id="showAddAcl">Hide/Show AccountList</button>
             <button class="btn btn-outline-secondary" id="showAddCat">Hide/Show Add Category</button>
             <div id="accountSelector"></div>
+
             <div id="displayTra">
                 <h4>New Transaction</h4>
                 <table>
@@ -55,9 +60,6 @@
                 </table>
             </div>
             <div id="displayCat">
-                <div class="alert alert-danger m-3" role="alert">
-                    Ricordati di implementare l'aggiunta di nuove categorie e di aggiungerle alla memoria persistente
-                </div>
                 <h4>New Category</h4>
                 <table>
                     <tr>
