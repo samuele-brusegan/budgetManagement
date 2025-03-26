@@ -4,7 +4,18 @@ const ASSETS_TO_CACHE = [
     "styles.css",
     "app.js",
     "assets/icons/icon-192x192.png",
-    "assets/icons/icon-512x512.png"
+    "assets/icons/icon-512x512.png",
+    "manifest.json",
+    "favicon.ico",
+    "view/ui.js",
+    "controllers/Controller.js",
+    "models/Conto.js",
+    "models/Transaction.js",
+    "models/Category.js",
+    "models/PaymentOptions.js",
+    "models/jsonManager.js",
+    "models/defaultData/categories.json",
+    "models/defaultData/payOptions.json",
 ];
 
 // Installazione del Service Worker
