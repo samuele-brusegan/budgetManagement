@@ -1,0 +1,22 @@
+[
+	{
+		"name": "Carta di Credito",
+		"imagePath": "assets/payment_icons/credit_card.png"
+	},
+	{
+		"name": "Carta di Debito",
+		"imagePath": "assets/payment_icons/debit_card.png"
+	},
+	{
+		"name": "PayPal",
+		"imagePath": "assets/payment_icons/paypal.png"
+	},
+	{
+		"name": "Bonifico Bancario",
+		"imagePath": "assets/payment_icons/bank_transfer.png"
+	},
+	{
+		"name": "Contanti",
+		"imagePath": "assets/payment_icons/cash.png"
+	}
+]
