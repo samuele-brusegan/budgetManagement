@@ -58,7 +58,9 @@ export function remConto(id){
  * Restituisce il conto corrente.
  * @returns {Conto} Il conto corrente.
  */
-export function getCurrAccount(){ return currentAccount; }
+export function getCurrAccount(){
+    return currentAccount;
+}
 
 /**
  * Imposta il conto corrente.
@@ -68,6 +70,12 @@ export function setCurrAccount(account){
     currentAccount = account; // Imposta il conto corrente
     UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
 }
+
+export function getCategoryList() {
+    return Category.categoryList;
+}
+
+// ----------------------------------- MEMORY MANAGEMENT ----------------------------------- //
 
 /**
  * Salva i dati nella memoria persistente.
@@ -111,7 +119,7 @@ function loadFromJSON(path, list, Class) {
         })
         .then(data => {
             // Qui puoi usare i dati del JSON
-            console.log("data", data)
+            // console.log("data", data)
             data.forEach(obj => { // Per ogni oggetto nel JSON
                 let newObj = new Class(obj.name, obj.description, obj["parentCategoryID"]); // Crea un nuovo oggetto della classe specificata
                 list.push(newObj) // Aggiunge l'oggetto alla lista

@@ -4,21 +4,22 @@ import * as Memory from "./jsonManager.js";
  * Classe per rappresentare una categoria.
  */
 export class Category {
-    
+    static categoryCounter = 1; //0 è la Root (/) category
     static categoryList = []; // Lista statica di tutte le categorie
     
     /**
      * Costruttore per la classe Category.
      * @param {string} name - Il nome della categoria.
      * @param {string} description - La descrizione della categoria.
-     * @param {number} [parentCategory=null] - L'ID della categoria padre (opzionale, default: null).
+     * @param {number} [parentCategoryID=null] - L'ID della categoria padre (opzionale, default: null).
      */
-    constructor(name, description, parentCategory = null) {
-        this._name = name; // Nome della categoria
-        this._description = description; // Descrizione della categoria
-        this._parentCategory = parentCategory; // Categoria padre
-        Category.categoryList.push(this); // Aggiunge la categoria alla lista statica
-        Memory.save() // Salva i dati nella memoria persistente
+    constructor(name, description, parentCategoryID = 0) {
+        this.id = Category.categoryCounter++;
+        this._name = name;                              // Nome della categoria
+        this._description = description;                // Descrizione della categoria
+        this._parentCategoryID = parentCategoryID;      // Categoria padre
+        Category.categoryList.push(this);               // Aggiunge la categoria alla lista statica
+        Memory.save()                                   // Salva i dati nella memoria persistente
     }
     
     /**
@@ -57,15 +58,15 @@ export class Category {
      * Restituisce la categoria padre.
      * @returns {number} L'ID della categoria padre.
      */
-    get parentCategory() {
-        return this._parentCategory;
+    get parentId() {
+        return this._parentCategoryID;
     }
     
     /**
      * Imposta la categoria padre.
      * @param {number} value - Il nuovo ID della categoria padre.
      */
-    set parentCategory(value) {
-        this._parentCategory = value;
+    set parentId(value) {
+        this._parentCategoryID = value;
     }
 }

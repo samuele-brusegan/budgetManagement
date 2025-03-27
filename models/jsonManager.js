@@ -25,7 +25,7 @@ export function load(){
                 elem["_transactionList"]
             );
         });
-        console.log("LEN:", Conto.accountList)
+        // console.log("LEN:", Conto.accountList)
         if(Conto.accountList.length === 0){
             console.log("Adding new default account")
             Controller.setCurrAccount(new Conto("Account", 0, '$'))

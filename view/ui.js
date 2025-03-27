@@ -1,6 +1,8 @@
 import * as Controller from "../controllers/Controller.js";
 import * as ContoUI from "./ContoUI.js";
 import {showConto} from "./ContoUI.js";
+import {Category} from "../models/Category.js";
+import * as CategoryUI from "./CategoryUI.js";
 
 export * from "./ContoUI.js";
 
@@ -9,6 +11,7 @@ export * from "./ContoUI.js";
 
 let newTransaction = document.getElementById("newTransaction");
 let newAccount = document.getElementById("newAccount");
+let newCategory = document.getElementById("newCategory");
 
 newAccount.addEventListener("click", () => {
     let v0 = document.getElementById("name");
@@ -23,7 +26,13 @@ newTransaction.addEventListener("click", () => {
     Controller.createTransaction(value.value, type.value, date.value);
     ContoUI.showConto(Controller.getCurrAccount(), "conto");
 });
-
+newCategory.addEventListener("click", () => {
+    let value = document.getElementById("value");
+    let type = document.getElementById("category");
+    let date = document.getElementById("date");
+    new Category(value.value, type.value, date.value);
+    CategoryUI.showCatagoryList(Controller.getCategoryList(), "categoryTree");
+});
 
 // ---------------------------- View <- Controller ----------------------------
 
@@ -53,9 +62,9 @@ export function updateAccountList(accounts, currentAccount) {
 
 // ------------------------------- View -> DOM --------------------------------
 
-const showIdsArr = ["showAddAcc", "showAddTra", "showAddCat", "showAddAcl"     ];
-const isShownArr = [    true    ,    false    ,    false    ,     false        ];
-const displayArr = ["displayAcc", "displayTra", "displayCat", "accountSelector"];
+const showIdsArr = ["showAddAcc", "showAddTra", "showAddCat", "showAddAcl"     , "showCatLis"  ];
+const isShownArr = [    true    ,    false    ,    false    ,     false        ,    false      ];
+const displayArr = ["displayAcc", "displayTra", "displayCat", "accountSelector", "categoryList"];
 
 function setupToggler(index) {
     let showAdd = document.getElementById(showIdsArr[index]);
@@ -63,6 +72,7 @@ function setupToggler(index) {
     let display = document.getElementById(displayArr[index]);
     display.hidden = !isShown;
     
+    console.log(showAdd.id);
     showAdd.addEventListener("click", () => {
         display.hidden = (isShown); isShown = !isShown;
     });
