@@ -2,31 +2,41 @@
 	{
 		"name": "General",
 		"description": "A general transaction",
-		"parentCategoryID": -1
+		"parentCategoryID": 0
 	},
 	{
 		"name": "Food",
 		"description": "Groceries, restaurants, and other food expenses",
-		"parentCategoryID": -1
+		"parentCategoryID": 0
+	},
+	{
+		"name": "MC Donald's",
+		"description": "MC Donald's fast food",
+		"parentCategoryID": 2
+	},
+	{
+		"name": "MC Donald's pero 2",
+		"description": "MC Donald's fast food",
+		"parentCategoryID": 3
 	},
 	{
 		"name": "Transportation",
 		"description": "Fuel, public transport, and other transportation costs",
-		"parentCategoryID": -1
+		"parentCategoryID": 0
 	},
 	{
 		"name": "Entertainment",
 		"description": "Movies, concerts, and other entertainment expenses",
-		"parentCategoryID": -1
+		"parentCategoryID": 0
 	},
 	{
 		"name": "Utilities",
 		"description": "Electricity, water, gas, and other utility bills",
-		"parentCategoryID": -1
+		"parentCategoryID": 0
 	},
 	{
 		"name": "Salary",
 		"description": "Monthly salary",
-		"parentCategoryID": -1
+		"parentCategoryID": 0
 	}
 ]

@@ -92,6 +92,7 @@ export function loadData(){
     currentAccount = currentAccount ?? Conto.accountList[0] ?? nullAccount; // Imposta il conto corrente al primo conto della lista o al conto di default
     UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
     UI.showConto(currentAccount); // Mostra il conto corrente
+    UI.showCatagoryList(Category.categoryList, "categoryTree");
 }
 
 /**
@@ -110,6 +111,7 @@ export function delData() {
  * @param {class} Class - La classe degli oggetti da creare.
  */
 function loadFromJSON(path, list, Class) {
+    console.log("Loading from JSON")
     fetch(path) // Usa il percorso relativo al file JSON
         .then(response => {
             if (!response.ok) {
@@ -122,9 +124,11 @@ function loadFromJSON(path, list, Class) {
             // console.log("data", data)
             data.forEach(obj => { // Per ogni oggetto nel JSON
                 let newObj = new Class(obj.name, obj.description, obj["parentCategoryID"]); // Crea un nuovo oggetto della classe specificata
+                console.log(newObj)
                 list.push(newObj) // Aggiunge l'oggetto alla lista
             });
             Memory.save() // Salva i dati nella memoria persistente
+            UI.showCatagoryList(Category.categoryList, "categoryTree");
         })
         .catch(error => {
             console.error('Errore durante il caricamento del file JSON:', error);

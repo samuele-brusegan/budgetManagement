@@ -1,25 +1,29 @@
 export function showCatagoryList(list, docObjId) {
-    let docObj = document.getElementById(docObjId);
-    docObj.innerHTML = "";
+    // let docObj = document.getElementById(docObjId);
+    // docObj.innerHTML = "";
+    console.log("showCatagoryList")
     sortByParentID(list);
-
-    // <ul id="myUL">
-    //     <li><span className="caret">Beverages</span><ul className="nested"> //Parent Class
-    //         <li>Water</li> //Son no childs
-    //         <li>Coffee</li>
-    //         <li><span className="caret">Tea</span><ul className="nested"> //Son with childs
-    //             <li>Black Tea</li>
-    //             <li>White Tea</li>
-    //             <li><span className="caret">Green Tea</span><ul className="nested">
-    //                 <li>Sencha</li>
-    //                 <li>Gyokuro</li>
-    //                 <li>Matcha</li>
-    //                 <li>Pi Lo Chun</li>
-    //             </ul></li>
-    //         </ul></li>
-    //     </ul></li>
-    // </ul>
-
+    const root = document.getElementById("categoryList0");
+    root.innerHTML = ""
+    
+    //Aggiungi le categorie
+    list.forEach(category => {
+        let parent = document.getElementById("categoryList"+category.parentId)
+        let nodeLi = document.createElement("li")
+        let nodeSpan = document.createElement("span")
+        nodeSpan.classList.add("caret")
+        nodeSpan.innerText = category.name
+        nodeLi.appendChild(nodeSpan)
+        let nodeUl = document.createElement("ul")
+        nodeUl.classList.add("nested")
+        nodeUl.id = "categoryList"+category.id
+        nodeLi.appendChild(nodeUl)
+        
+        parent.appendChild(nodeLi)
+    });
+    //
+    
+    
     let toggler = document.getElementsByClassName("caret");
     let i;
 

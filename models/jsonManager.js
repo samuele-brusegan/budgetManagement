@@ -33,6 +33,7 @@ export function load(){
     }
     
     
+    
     Category.categoryList = JSON.parse(localStorage.getItem(fileName+"_categories"));
 }
 /**

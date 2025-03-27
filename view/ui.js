@@ -5,6 +5,7 @@ import {Category} from "../models/Category.js";
 import * as CategoryUI from "./CategoryUI.js";
 
 export * from "./ContoUI.js";
+export * from "./CategoryUI.js"
 
 
 // ---------------------------- View -> Controller ----------------------------
@@ -62,9 +63,9 @@ export function updateAccountList(accounts, currentAccount) {
 
 // ------------------------------- View -> DOM --------------------------------
 
-const showIdsArr = ["showAddAcc", "showAddTra", "showAddCat", "showAddAcl"     , "showCatLis"  ];
-const isShownArr = [    true    ,    false    ,    false    ,     false        ,    false      ];
-const displayArr = ["displayAcc", "displayTra", "displayCat", "accountSelector", "categoryList"];
+const showIdsArr = ["showAddAcc", "showAddTra", "showAddCat", "showAddAcl"     , "showCatLis"   ];
+const isShownArr = [    true    ,    false    ,    false    ,     false        ,      false     ];
+const displayArr = ["displayAcc", "displayTra", "displayCat", "accountSelector", "categoryList0"];
 
 function setupToggler(index) {
     let showAdd = document.getElementById(showIdsArr[index]);
