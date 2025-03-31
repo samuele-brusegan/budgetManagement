@@ -15,6 +15,7 @@
         <link rel="icon" href="assets/icons/icon-192x192.png">
         <link rel="apple-touch-icon" href="assets/icons/icon-512x512.png">
         <title>WebApp</title>
+        <script>window.location.replace("./app/index.html");</script>
     </head>
     <body>
         <div class="alert alert-success m-3" role="alert">Ricordati di implementare l'aggiunta di nuove <b>categorie</b> e di aggiungerle alla memoria persistente</div>
@@ -30,30 +31,15 @@
                     <p class="card-text" id="contoBody">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
             </div>
-<!--            <div class="mb-5 mt-2 alert alert-primary" role="alert" id="conto"></div>-->
+
             <button class="btn btn-outline-secondary" id="showAddTra">Hide/Show Add Transaction</button>
             <button class="btn btn-outline-secondary" id="showAddAcc">Hide/Show Add Conto</button>
             <button class="btn btn-outline-secondary" id="showAddAcl">Hide/Show AccountList</button>
             <button class="btn btn-outline-secondary" id="showAddCat">Hide/Show Add Category</button>
             <button class="btn btn-outline-secondary" id="showCatLis">Hide/Show Category List</button>
-            <div id="accountSelector"></div>
-            <ul  id="categoryList0" class="myUL">
-<!--                <li><span class="caret">Beverages</span><ul class="nested"> //Parent Class-->
-<!--                    <li>Water</li> //Son no childs-->
-<!--                    <li>Coffee</li>-->
-<!--                    <li><span class="caret">Tea</span><ul class="nested"> //Son with childs-->
-<!--                        <li>Black Tea</li>-->
-<!--                        <li>White Tea</li>-->
-<!--                        <li><span class="caret">Green Tea</span><ul class="nested">-->
-<!--                            <li>Sencha</li>-->
-<!--                            <li>Gyokuro</li>-->
-<!--                            <li>Matcha</li>-->
-<!--                            <li>Pi Lo Chun</li>-->
-<!--                        </ul></li>-->
-<!--                    </ul></li>-->
-<!--                </ul></li>-->
-            </ul>
 
+            <div id="accountSelector"></div>
+            <ul  id="categoryList0" class="myUL"></ul>
             <div id="displayTra">
                 <h4>New Transaction</h4>
                 <table>

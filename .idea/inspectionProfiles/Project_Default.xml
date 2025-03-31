@@ -2,11 +2,12 @@
   <profile version="1.0">
     <option name="myName" value="Project Default" />
     <inspection_tool class="GrazieInspection" enabled="false" level="GRAMMAR_ERROR" enabled_by_default="false" />
-    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="INFORMATION" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="1">
+          <list size="2">
             <item index="0" class="java.lang.String" itemvalue="uid" />
+            <item index="1" class="java.lang.String" itemvalue="@click" />
           </list>
         </value>
       </option>
