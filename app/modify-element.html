@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Budget Management</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <div class="app">
+            <!-- Modify Element Page -->
+            <div id="modify-element-page">
+                <div class="page-header">
+                    <button class="back-btn" onclick="navigateTo('home-page')">←</button>
+                    <h1 class="page-title">modifica elemento</h1>
+                </div>
+
+                <div class="card">
+                    <h2 class="section-title">modifica categoria</h2>
+                    <input type="text" class="text-input" placeholder="Scrivi il nome...">
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="section-title">modifica elemento</h2>
+                        <span class="element-number">17</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>valore</label>
+                        <input type="number" class="number-input" placeholder="0.00">
+                    </div>
+
+                    <div class="payment-methods">
+                        <button class="method-btn">bonifico</button>
+                        <button class="method-btn">carta</button>
+                        <button class="method-btn">contanti</button>
+                    </div>
+
+                    <button class="primary-btn">fatto</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

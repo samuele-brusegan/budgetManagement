@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Budget Management</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <!-- Transactions Page -->
+        <div class="app">
+            <h1 class="page-title">transazioni</h1>
+
+            <div class="card account-selector">
+                <div>
+                    <h2 class="account-title">conto 1</h2>
+                    <p class="account-subtitle">risparmio</p>
+                </div>
+                <span class="dropdown-icon">▼</span>
+            </div>
+
+            <div class="transactions-list">
+                <div class="transaction-card expense">
+                    <div>
+                        <h3 class="transaction-title">Spesa</h3>
+                        <p class="transaction-subtitle">Carta</p>
+                    </div>
+                    <span class="transaction-amount">-€ 24.99</span>
+                </div>
+
+                <div class="transaction-card income">
+                    <div>
+                        <h3 class="transaction-title">Stipendio</h3>
+                        <p class="transaction-subtitle">Bonifico</p>
+                    </div>
+                    <span class="transaction-amount">+€ 1,500.00</span>
+                </div>
+
+                <div class="transaction-card expense">
+                    <div>
+                        <h3 class="transaction-title">Affitto</h3>
+                        <p class="transaction-subtitle">Bonifico</p>
+                    </div>
+                    <span class="transaction-amount">-€ 650.00</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
