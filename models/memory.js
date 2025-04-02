@@ -1,6 +1,5 @@
 import {Conto} from "./Conto.js";
 import {Category} from "./Category.js";
-import * as Controller from "../controllers/Controller.js";
 
 const fileName = "data"
 
@@ -28,7 +27,7 @@ export function load(){
         // console.log("LEN:", Conto.accountList)
         if(Conto.accountList.length === 0){
             console.log("Adding new default account")
-            Controller.setCurrAccount(new Conto("Account", 0, '$'))
+            // Controller.setCurrAccount(new Conto("Account", 0, '$'))
         }
     }
     

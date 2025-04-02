@@ -19,7 +19,7 @@ body {
 }
 
 .content {
-    flex: 1;
+    /*flex: 1;*/
     padding-bottom: 70px;
     overflow-y: auto;
 }
@@ -56,14 +56,14 @@ body {
 }
 
 /* Card Styles */
-.card {
+.my-card {
     background-color: #1a1a1a;
     border-radius: 8px;
     padding: 16px;
     margin-bottom: 16px;
 }
 
-.card-header {
+.my-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -105,7 +105,8 @@ body {
 
 .progress-bar {
     height: 8px;
-    background-color: #333;
+    /*background-color: #333;*/
+    background-color: #f44336;
     border-radius: 4px;
     overflow: hidden;
 }

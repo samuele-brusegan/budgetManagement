@@ -1,5 +1,6 @@
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
+//    console.log("contentLOad")
     // Initialize the pie chart
     initPieChart();
     
@@ -10,56 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Navigation function
-function navigateTo(pageId) {
-    // // Hide all pages
-    // const pages = document.querySelectorAll('.page');
-    // pages.forEach(page => {
-    //     page.classList.remove('active');
-    // });
-    //
-    // // Show the selected page
-    // const selectedPage = document.getElementById(pageId);
-    // if (selectedPage) {
-    //     selectedPage.classList.add('active');
-    // }
-    //
-    // // Update navigation
-    // const navItems = document.querySelectorAll('.nav-item');
-    // navItems.forEach(item => {
-    //     item.classList.remove('active');
-    // });
-    //
-    // // Find and activate the corresponding nav item
-    // let activeNavItem;
-    // switch(pageId) {
-    //     case 'home-page':
-    //         activeNavItem = document.querySelector('.nav-item:nth-child(1)');
-    //         break;
-    //     case 'transactions-page':
-    //         activeNavItem = document.querySelector('.nav-item:nth-child(2)');
-    //         break;
-    //     case 'modify-element-page':
-    //         activeNavItem = document.querySelector('.nav-item:nth-child(3)');
-    //         break;
-    //     case 'settings-page':
-    //         activeNavItem = document.querySelector('.nav-item:nth-child(4)');
-    //         break;
-    //     case 'developer-info-page':
-    //     case 'feedback-page':
-    //         activeNavItem = document.querySelector('.nav-item:nth-child(5)');
-    //         break;
-    // }
-    //
-    // if (activeNavItem) {
-    //     activeNavItem.classList.add('active');
-    // }
-    //
-    // // Update URL hash
-    // window.location.hash = pageId;
-    window.location.href = pageId + '.html';
-}
-
 // Initialize pie chart
 function initPieChart() {
     const ctx = document.getElementById('pieChart').getContext('2d');
@@ -67,14 +18,10 @@ function initPieChart() {
     const data = {
         labels: ['Conto 1', 'Conto 2', 'Altro'],
         datasets: [{
-            data: [400, 300, 300],
-            backgroundColor: [
-                '#0088FE',
-                '#00C49F',
-                '#FFBB28'
-            ],
+            data:            [400, 300, 300],
+            backgroundColor: ['#0088FE', '#00C49F', '#FFBB28'],
             borderWidth: 0,
-            hoverOffset: 4
+            hoverOffset: 10
         }]
     };
     

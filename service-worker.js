@@ -13,7 +13,7 @@ const ASSETS_TO_CACHE = [
     "models/Transaction.js",
     "models/Category.js",
     "models/PaymentOptions.js",
-    "models/jsonManager.js",
+    "models/memory.js",
     "models/defaultData/categories.json",
     "models/defaultData/payOptions.json",
 ];

@@ -1,14 +1,16 @@
 <!DOCTYPE html>
+<!--suppress CheckEmptyScriptTag -->
 <html lang="it">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Budget Management</title>
-        <link rel="stylesheet" href="styles.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="styles.css">
     </head>
-    <body>
-        <div class="app">
+    <body data-bs-theme="dark">
+        <div class="app col-md-11 m-auto">
             <!-- Modify Element Page -->
             <div id="modify-element-page">
                 <div class="page-header">
@@ -16,13 +18,13 @@
                     <h1 class="page-title">modifica elemento</h1>
                 </div>
 
-                <div class="card">
+                <div class="my-card">
                     <h2 class="section-title">modifica categoria</h2>
                     <input type="text" class="text-input" placeholder="Scrivi il nome...">
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
+                <div class="my-card">
+                    <div class="my-card-header">
                         <h2 class="section-title">modifica elemento</h2>
                         <span class="element-number">17</span>
                     </div>
@@ -41,6 +43,8 @@
                     <button class="primary-btn">fatto</button>
                 </div>
             </div>
+            <div id="lowerNavbar"/>
         </div>
     </body>
+    <script src="../view/navbar.js"></script>
 </html>

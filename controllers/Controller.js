@@ -1,7 +1,7 @@
 import {Transaction} from "../models/Transaction.js";
 import {Conto} from "../models/Conto.js";
-import * as UI from "../view/ui.js";
-import * as Memory from "../models/jsonManager.js";
+// import * as UI from "../view/ui.js";
+import * as Memory from "../models/memory.js";
 import {Category} from "../models/Category.js";
 import {PaymentOptions} from "../models/PaymentOptions.js";
 
@@ -28,7 +28,7 @@ if(false){
 export function createTransaction(value, type, date) {
     let transaction = new Transaction(value, type, date); // Crea una nuova transazione
     currentAccount.addTransaction(transaction); // Aggiunge la transazione al conto corrente
-    UI.showConto(currentAccount); // Aggiorna la UI
+    //FIXME: UI.showConto(currentAccount); // Aggiorna la UI
 }
 
 /**
@@ -39,7 +39,7 @@ export function createTransaction(value, type, date) {
  */
 export function addConto(name, value, currency){
     currentAccount = new Conto(name, value, currency); // Crea un nuovo conto
-    UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
+    //FIXME: UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
 }
 
 /**
@@ -51,7 +51,7 @@ export function remConto(id){
         if(account.id === id) Conto.accountList.splice(i, 1); // Rimuove il conto dalla lista
     });
     currentAccount = (Conto.accountList.length > 0)? Conto.accountList[0]: nullAccount; // Imposta il conto corrente al primo conto della lista o al conto di default
-    UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
+    //FIXME: UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
 }
 
 /**
@@ -68,11 +68,14 @@ export function getCurrAccount(){
  */
 export function setCurrAccount(account){
     currentAccount = account; // Imposta il conto corrente
-    UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
+    //FIXME: UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
 }
 
 export function getCategoryList() {
     return Category.categoryList;
+}
+export function getAccountList() {
+    return Conto.accountList;
 }
 
 // ----------------------------------- MEMORY MANAGEMENT ----------------------------------- //
@@ -90,9 +93,9 @@ export function saveData(){
 export function loadData(){
     Memory.load() // Carica i dati
     currentAccount = currentAccount ?? Conto.accountList[0] ?? nullAccount; // Imposta il conto corrente al primo conto della lista o al conto di default
-    UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
-    UI.showConto(currentAccount); // Mostra il conto corrente
-    UI.showCatagoryList(Category.categoryList, "categoryTree");
+    //FIXME: UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
+    //FIXME: UI.showConto(currentAccount); // Mostra il conto corrente
+    //FIXME: UI.showCatagoryList(Category.categoryList, "categoryTree");
 }
 
 /**
@@ -124,11 +127,11 @@ function loadFromJSON(path, list, Class) {
             // console.log("data", data)
             data.forEach(obj => { // Per ogni oggetto nel JSON
                 let newObj = new Class(obj.name, obj.description, obj["parentCategoryID"]); // Crea un nuovo oggetto della classe specificata
-                console.log(newObj)
+                // console.log(newObj)
                 list.push(newObj) // Aggiunge l'oggetto alla lista
             });
             Memory.save() // Salva i dati nella memoria persistente
-            UI.showCatagoryList(Category.categoryList, "categoryTree");
+            //FIXME: UI.showCatagoryList(Category.categoryList, "categoryTree");
         })
         .catch(error => {
             console.error('Errore durante il caricamento del file JSON:', error);
@@ -139,7 +142,7 @@ function loadFromJSON(path, list, Class) {
  * Inizializza la memoria caricando i dati dai file JSON.
  */
 function initMemory() {
-    loadFromJSON("models/defaultData/categories.json", Category.categoryList, Category);
-    loadFromJSON("models/defaultData/payOptions.json", PaymentOptions.optionList, PaymentOptions);
+    loadFromJSON("../models/defaultData/categories.json", Category.categoryList, Category);
+    loadFromJSON("../models/defaultData/payOptions.json", PaymentOptions.optionList, PaymentOptions);
     loadData()
 }

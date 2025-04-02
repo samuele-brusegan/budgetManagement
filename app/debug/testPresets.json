@@ -1,0 +1,278 @@
+[
+    {
+        "name": "Empty",
+        "data": {
+            "accounts": [],
+            "categories": []
+        }
+    },
+    {
+        "name": "Basic",
+        "data": {
+            "accounts": [
+                {
+                    "_name": "Checking",
+                    "_value": 1500,
+                    "_currency": "$",
+                    "_transactionList": [
+                        {
+                            "_name": "Initial Deposit",
+                            "_value": 2000,
+                            "_date": "2024-01-10",
+                            "_category": "Salary"
+                        },
+                        {
+                            "_name": "Coffee",
+                            "_value": -5,
+                            "_date": "2024-01-12",
+                            "_category": "Food"
+                        },
+                        {
+                            "_name": "Groceries",
+                            "_value": -100,
+                            "_date": "2024-01-15",
+                            "_category": "Groceries"
+                        },
+                        {
+                            "_name": "Gas",
+                            "_value": -50,
+                            "_date": "2024-01-18",
+                            "_category": "Transportation"
+                        },
+                        {
+                            "_name": "Paycheck",
+                            "_value": 1000,
+                            "_date": "2024-01-25",
+                            "_category": "Salary"
+                        },
+                        {
+                            "_name": "Dinner",
+                            "_value": -30,
+                            "_date": "2024-01-28",
+                            "_category": "Food"
+                        },
+                        {
+                            "_name": "Groceries",
+                            "_value": -150,
+                            "_date": "2024-02-05",
+                            "_category": "Groceries"
+                        },
+                        {
+                            "_name": "Paycheck",
+                            "_value": 1000,
+                            "_date": "2024-02-10",
+                            "_category": "Salary"
+                        },
+                        {
+                            "_name": "Rent",
+                            "_value": -800,
+                            "_date": "2024-02-15",
+                            "_category": "Rent"
+                        }
+                    ]
+                },
+                {
+                    "_name": "Savings",
+                    "_value": 5000,
+                    "_currency": "$",
+                    "_transactionList": [
+                        {
+                            "_name": "Initial Deposit",
+                            "_value": 5000,
+                            "_date": "2023-12-01",
+                            "_category": "Savings"
+                        }
+                    ]
+                }
+            ],
+            "categories": [
+                {
+                    "_name": "Groceries",
+                    "_type": "expense"
+                },
+                {
+                    "_name": "Salary",
+                    "_type": "income"
+                },
+                {
+                    "_name": "Rent",
+                    "_type": "expense"
+                },
+                {
+                    "_name": "Food",
+                    "_type": "expense"
+                },
+                {
+                    "_name": "Transportation",
+                    "_type": "expense"
+                },
+                {
+                    "_name": "Savings",
+                    "_type": "income"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Advanced",
+        "data": {
+            "accounts": [
+                {
+                    "_name": "Checking",
+                    "_value": 2000,
+                    "_currency": "$",
+                    "_transactionList": [
+                        {
+                            "_name": "Paycheck",
+                            "_value": 2500,
+                            "_date": "2024-03-15",
+                            "_category": "Salary"
+                        },
+                        {
+                            "_name": "Groceries",
+                            "_value": -150,
+                            "_date": "2024-03-16",
+                            "_category": "Groceries"
+                        },
+                        {
+                            "_name": "Rent",
+                            "_value": -1000,
+                            "_date": "2024-03-01",
+                            "_category": "Rent"
+                        },
+                        {
+                            "_name": "Coffee",
+                            "_value": -5,
+                            "_date": "2024-03-02",
+                            "_category": "Food"
+                        },
+                        {
+                            "_name": "Gas",
+                            "_value": -60,
+                            "_date": "2024-03-05",
+                            "_category": "Transportation"
+                        },
+                        {
+                            "_name": "Paycheck",
+                            "_value": 2500,
+                            "_date": "2024-03-30",
+                            "_category": "Salary"
+                        },
+                        {
+                            "_name": "Dinner",
+                            "_value": -40,
+                            "_date": "2024-03-28",
+                            "_category": "Food"
+                        }
+                    ]
+                },
+                {
+                    "_name": "Savings",
+                    "_value": 10000,
+                    "_currency": "$",
+                    "_transactionList": [
+                        {
+                            "_name": "Initial Deposit",
+                            "_value": 10000,
+                            "_date": "2023-10-01",
+                            "_category": "Savings"
+                        },
+                        {
+                            "_name": "Interest",
+                            "_value": 50,
+                            "_date": "2023-11-01",
+                            "_category": "Interest"
+                        },
+                        {
+                            "_name": "Interest",
+                            "_value": 50,
+                            "_date": "2023-12-01",
+                            "_category": "Interest"
+                        },
+                        {
+                            "_name": "Interest",
+                            "_value": 50,
+                            "_date": "2024-01-01",
+                            "_category": "Interest"
+                        },
+                        {
+                            "_name": "Interest",
+                            "_value": 50,
+                            "_date": "2024-02-01",
+                            "_category": "Interest"
+                        },
+                        {
+                            "_name": "Interest",
+                            "_value": 50,
+                            "_date": "2024-03-01",
+                            "_category": "Interest"
+                        }
+                    ]
+                },
+                {
+                    "_name": "Credit Card",
+                    "_value": -500,
+                    "_currency": "$",
+                    "_transactionList": [
+                        {
+                            "_name": "Dinner",
+                            "_value": -50,
+                            "_date": "2024-03-17",
+                            "_category": "Food"
+                        },
+                        {
+                            "_name": "Online Purchase",
+                            "_value": -100,
+                            "_date": "2024-03-20",
+                            "_category": "Shopping"
+                        },
+                        {
+                            "_name": "Gas",
+                            "_value": -70,
+                            "_date": "2024-03-25",
+                            "_category": "Transportation"
+                        }
+                    ]
+                }
+            ],
+            "categories": [
+                {
+                    "_name": "Groceries",
+                    "_type": "expense"
+                },
+                {
+                    "_name": "Salary",
+                    "_type": "income"
+                },
+                {
+                    "_name": "Rent",
+                    "_type": "expense"
+                },
+                {
+                    "_name": "Food",
+                    "_type": "expense"
+                },
+                {
+                    "_name": "Entertainment",
+                    "_type": "expense"
+                },
+                {
+                    "_name": "Transportation",
+                    "_type": "expense"
+                },
+                {
+                    "_name": "Shopping",
+                    "_type": "expense"
+                },
+                {
+                    "_name": "Interest",
+                    "_type": "income"
+                },
+                {
+                    "_name": "Savings",
+                    "_type": "income"
+                }
+            ]
+        }
+    }
+]

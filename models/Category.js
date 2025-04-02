@@ -1,4 +1,4 @@
-import * as Memory from "./jsonManager.js";
+import * as Memory from "./memory.js";
 
 /**
  * Classe per rappresentare una categoria.
