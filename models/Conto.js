@@ -1,4 +1,5 @@
 import * as Memory from "./memory.js";
+import {Transaction} from "./Transaction.js";
 
 /**
  * Classe per rappresentare un conto.
@@ -12,8 +13,9 @@ export class Conto {
      * @param {string} name - Il nome del conto.
      * @param {number} [value=0] - Il saldo iniziale del conto (opzionale, default: 0).
      * @param {string} [currency='€'] - La valuta del conto (opzionale, default: '€').
+     * @param transaction
      */
-    constructor(name, value=0, currency="€") {
+    constructor(name, value=0, currency="€", transaction = null) {
         this._transactionList = [];
         this._name = name;
         this._value = parseInt(value);
@@ -50,7 +52,7 @@ export class Conto {
     
     addManyTransactions(transactions){
         transactions.forEach((transaction) => {
-            this._transactionList.push(transaction)
+            this._transactionList.push(new Transaction(transaction._value, transaction._category, transaction._date))
         });
         Memory.save(); // Salva i dati nella memoria persistente
     }

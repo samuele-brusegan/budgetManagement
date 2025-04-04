@@ -21,8 +21,8 @@
     </style>
     <body data-bs-theme="dark">
         <!-- Home Page Content -->
-        <div id="home-page" class="app col-md-11 m-auto mt-2">
-            <h1 class="page-title">Home</h1>
+        <div id="topbar"></div>
+        <div id="home-page" class="col-md-11 app">
 
             <div class="my-card">
                 <div class="my-card-header">
@@ -36,7 +36,7 @@
                     </div>
                 </div>
 
-                <div class="chart-container">
+                <div class="chart-container d-flex justify-content-center align-items-center">
                     <canvas id="pieChart"></canvas>
                 </div>
 
@@ -54,6 +54,7 @@
             <div id="lowerNavbar"/>
         </div>
         <script src="../view/navbar.js"></script>
+        <script src="../view/topbar.js"></script>
         <script src="specificScript/home.js" type="module"></script>
         <script src="script.js"></script>
     </body>

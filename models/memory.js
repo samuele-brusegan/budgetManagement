@@ -30,18 +30,11 @@ export function load(){
             );
             // Convert transactions
             if (elem._transactionList) {
+                elem._transactionList.forEach((transaction)=>{
+                    console.log(transaction)
+                });
                 newAccount.addManyTransactions(elem._transactionList)
-                // elem._transactionList.forEach((transactionData) => {
-                //     console.log(transactionData)
-                //     newAccount.addTransaction(
-                //         transactionData.name,
-                //         transactionData._value,
-                //         transactionData._date,
-                //         transactionData._category
-                //     );
-                // });
             }
-//            console.log(elem._transactionList)
         });
         // console.log("LEN:", Conto.accountList)
         if(Conto.accountList.length === 0){

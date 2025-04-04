@@ -5,7 +5,7 @@ import * as Memory from "./memory.js";
  */
 export class Category {
     static categoryCounter = 1; //0 è la Root (/) category
-    static categoryList = []; // Lista statica di tutte le categorie
+    static categoryList = new Array(); // Lista statica di tutte le categorie
     
     /**
      * Costruttore per la classe Category.
@@ -18,7 +18,8 @@ export class Category {
         this._name = name;                              // Nome della categoria
         this._description = description;                // Descrizione della categoria
         this._parentCategoryID = parentCategoryID;      // Categoria padre
-        Category.categoryList.push(this);               // Aggiunge la categoria alla lista statica
+        // Category.categoryList.push(this);               // Aggiunge la categoria alla lista statica
+        let arr = []; arr.push(Category.categoryList); arr.push(this); Category.categoryList = arr //FIXME: Please fix this
         Memory.save()                                   // Salva i dati nella memoria persistente
     }
     

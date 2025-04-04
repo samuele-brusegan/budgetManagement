@@ -8,7 +8,7 @@ function isDevShow() {
     console.log(dev)
     if(dev) {
         console.log("a")
-        pageHead.innerHTML = headerBack + " <a href='debug/inputCode.html'>!(You aren't a dev)</a>";
+        pageHead.innerHTML = headerBack + " <a href='debug/index.html'>!(You aren't a dev)</a>";
     } else {
         console.log("b")
         pageHead.innerHTML = headerBack;

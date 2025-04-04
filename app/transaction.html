@@ -14,41 +14,42 @@
         <div class="app col-md-11 m-auto">
             <h1 class="page-title">transazioni</h1>
 
-            <div class="my-card account-selector">
+            <div class="my-card account-selector" id="account-selector">
                 <div>
-                    <h2 class="account-title">conto 1</h2>
-                    <p class="account-subtitle">risparmio</p>
+                    <h2 class="account-title">Conto 1</h2>
+                    <p class="account-subtitle">Risparmio</p>
                 </div>
                 <span class="dropdown-icon">▼</span>
             </div>
 
-            <div class="transactions-list">
+            <div class="transactions-list" id="transactions-list">
                 <div class="transaction-card expense">
                     <div>
-                        <h3 class="transaction-title">Spesa</h3>
-                        <p class="transaction-subtitle">Carta</p>
+                        <h3 class="transaction-title">NomeTransazione_exp</h3>
+                        <p class="transaction-subtitle">MetodoPagamento</p>
                     </div>
-                    <span class="transaction-amount">-€ 24.99</span>
+                    <span class="transaction-amount">-€ VALUE</span>
                 </div>
 
                 <div class="transaction-card income">
                     <div>
-                        <h3 class="transaction-title">Stipendio</h3>
-                        <p class="transaction-subtitle">Bonifico</p>
+                        <h3 class="transaction-title">NomeTransazione_inc</h3>
+                        <p class="transaction-subtitle">MetodoPagamento</p>
                     </div>
-                    <span class="transaction-amount">+€ 1,500.00</span>
+                    <span class="transaction-amount">+€ VALUE</span>
                 </div>
 
                 <div class="transaction-card expense">
                     <div>
-                        <h3 class="transaction-title">Affitto</h3>
-                        <p class="transaction-subtitle">Bonifico</p>
+                        <h3 class="transaction-title">NomeTransazione_exp</h3>
+                        <p class="transaction-subtitle">MetodoPagamento</p>
                     </div>
-                    <span class="transaction-amount">-€ 650.00</span>
+                    <span class="transaction-amount">-€ VALUE</span>
                 </div>
             </div>
             <div id="lowerNavbar"/>
         </div>
     </body>
+    <script src="specificScript/transactions.js" type="module"></script>
     <script src="../view/navbar.js"></script>
 </html>
