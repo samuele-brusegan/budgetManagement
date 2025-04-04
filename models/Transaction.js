@@ -18,7 +18,7 @@ export class Transaction {
         this._date = date; // Data della transazione
         this._id = Transaction.transactionCounter; // ID univoco della transazione
         Transaction.transactionCounter++; // Incrementa il contatore per la prossima transazione
-        Memory.save(); // Salva i dati nella memoria persistente
+        //Memory.save(); // Salva i dati nella memoria persistente
     }
     
     /**

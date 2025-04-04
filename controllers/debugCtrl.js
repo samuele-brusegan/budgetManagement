@@ -36,8 +36,9 @@ export function getDev() {
 // DEVELOPER MODE BELOW
 
 export function cleanImport(val) {
-    localStorage.setItem("data_accountList", JSON.stringify(val.accounts));
-    localStorage.setItem("data_categories", JSON.stringify(val.categories));
+    convertJsonToObjects(val);
+    // localStorage.setItem("data_accountList", JSON.stringify(val.accounts));
+    // localStorage.setItem("data_categories", JSON.stringify(val.categories));
 }
 
 export function cleanExport() {
@@ -60,7 +61,8 @@ export function convertJsonToObjects(jsonData) {
         } catch (error) {
             throw new Error("Invalid JSON string provided.");
         }
-    } else if (typeof jsonData === "object") {
+    }
+    else if (typeof jsonData === "object") {
         // If it's already an object, use it directly
         parsedData = jsonData;
     } else {
@@ -92,19 +94,21 @@ export function convertJsonToObjects(jsonData) {
                 accountData._name,
                 accountData._value,
                 accountData._currency,
-                accountData._transactionList
+                // accountData._transactionList
             );
             // Convert transactions
             if (accountData._transactionList) {
-                accountData._transactionList.forEach((transactionData) => {
-                    newAccount.addTransaction(
-                        transactionData._name,
-                        transactionData._value,
-                        transactionData._date,
-                        transactionData._category
-                    );
-                });
+                newAccount.addManyTransactions(accountData._transactionList)
+                // accountData._transactionList.forEach((transactionData) => {
+                //     newAccount.addTransaction(
+                //         transactionData._name,
+                //         transactionData._value,
+                //         transactionData._date,
+                //         transactionData._category
+                //     );
+                // });
             }
+            console.log(newAccount.transactions)
             convertedAccounts.push(newAccount);
         });
     }

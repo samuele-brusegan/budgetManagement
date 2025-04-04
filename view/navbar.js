@@ -31,13 +31,9 @@ document.getElementById("lowerNavbar").innerHTML = "<!-- Bottom Navigation -->\n
     "                    <span>Impostazioni</span>\n" +
     "                </a>\n" +
     "\n" +
-    "                <a href='#' class='nav-item "+(pageName === "developer-info" ? "active" : "")+"' onclick='navigateTo(\"developer-info\")'>\n" +
-    "                    <svg class='nav-icon' viewBox='0 0 24 24'>\n" +
-    "                        <circle cx='12' cy='12' r='10'></circle>\n" +
-    "                        <line x1='12' y1='16' x2='12' y2='12'></line>\n" +
-    "                        <line x1='12' y1='8' x2='12.01' y2='8'></line>\n" +
-    "                    </svg>\n" +
-    "                    <span>Info</span>\n" +
+    "                <a href='#' class='nav-item "+(pageName === "inventory" ? "active" : "")+"' onclick='navigateTo(\"inventory\")'>\n" +
+    "                    <svg src='../assets/icons/boxes.svg' alt='Inventory' style='height: 20px; width: 20px; color: #fff;'/>\n"+
+    "                    <span>Inventory</span>\n" +
     "                </a>\n" +
     "            </nav>";
 

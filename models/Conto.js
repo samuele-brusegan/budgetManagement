@@ -48,6 +48,13 @@ export class Conto {
         Memory.save(); // Salva i dati nella memoria persistente
     }
     
+    addManyTransactions(transactions){
+        transactions.forEach((transaction) => {
+            this._transactionList.push(transaction)
+        });
+        Memory.save(); // Salva i dati nella memoria persistente
+    }
+    
     /**
      * Restituisce il nome del conto.
      * @returns {string} Il nome del conto.

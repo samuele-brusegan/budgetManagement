@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 //    console.log("contentLOad")
     // Initialize the pie chart
-    initPieChart();
+    //initPieChart();
     
     // Set active page based on hash or default to home
     const hash = window.location.hash.substring(1);
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Initialize pie chart
-function initPieChart() {
+/*function initPieChart() {
     const ctx = document.getElementById('pieChart').getContext('2d');
     
     const data = {
@@ -41,7 +41,7 @@ function initPieChart() {
     };
     
     new Chart(ctx, config);
-}
+}*/
 
 // Add event listeners for form elements
 document.querySelectorAll('.method-btn').forEach(button => {

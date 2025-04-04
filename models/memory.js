@@ -7,22 +7,41 @@ const fileName = "data"
  * Funzione per salvare i dati nella memoria locale.
  */
 export function save(){
-    localStorage.setItem(fileName+"_accountList", JSON.stringify(Conto.accountList));
+    //console.log("SAVE")
+    // console.log(Conto.accountList)
+    let jsonStringAccList = JSON.stringify(Conto.accountList, null, 2);
+    // console.log(jsonStringAccList)//FIXME: Qui le transazioni arrivano
+    localStorage.setItem(fileName+"_accountList", jsonStringAccList);
     localStorage.setItem(fileName+"_categories",  JSON.stringify(Category.categoryList));
 }
 /**
  * Funzione per caricare i dati dalla memoria locale.
  */
 export function load(){
+    console.log("LOAD")
     if(localStorage.getItem(fileName+"_accountList") !== "{}") {
         let accountListJSON = JSON.parse(localStorage.getItem(fileName+"_accountList"));
         accountListJSON?.forEach((elem) => {
-            new Conto(
+            let newAccount = new Conto(
                 elem["_name"],
                 elem["_value"],
                 elem["_currency"],
-                elem["_transactionList"]
+                // elem["_transactionList"]
             );
+            // Convert transactions
+            if (elem._transactionList) {
+                newAccount.addManyTransactions(elem._transactionList)
+                // elem._transactionList.forEach((transactionData) => {
+                //     console.log(transactionData)
+                //     newAccount.addTransaction(
+                //         transactionData.name,
+                //         transactionData._value,
+                //         transactionData._date,
+                //         transactionData._category
+                //     );
+                // });
+            }
+//            console.log(elem._transactionList)
         });
         // console.log("LEN:", Conto.accountList)
         if(Conto.accountList.length === 0){
