@@ -28,7 +28,7 @@ body {
 .content {
     /*flex: 1;*/
     padding-bottom: 70px;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
 }
 .app {
     margin: 4.25rem auto auto;
@@ -390,9 +390,9 @@ input:checked + .slider:before {
     left: 0;
     right: 0;
     border-radius: 0 0 1rem 1rem;
-    padding: 5px 0 0 15px;
+    padding: 5px 15px 0 15px;
     margin-bottom: 1rem;
-    z-index: -1;
+    /*z-index: -1;*/
     background: var(--secondary-bg);
     color: white;
 }

@@ -92,7 +92,7 @@ export function saveData(){
  */
 export function loadData(){
     Memory.load() // Carica i dati
-    currentAccount = currentAccount ?? Conto.accountList[2] ?? nullAccount; // Imposta il conto corrente al primo conto della lista o al conto di default
+    currentAccount = currentAccount ?? Conto.accountList[0] ?? nullAccount; // Imposta il conto corrente al primo conto della lista o al conto di default
     //FIXME: UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
     //FIXME: UI.showConto(currentAccount); // Mostra il conto corrente
     //FIXME: UI.showCatagoryList(Category.categoryList, "categoryTree");
