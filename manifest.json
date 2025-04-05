@@ -1,6 +1,6 @@
 {
-	"name": "Gestione Spese",
-	"short_name": "SpeseApp",
+	"name": "StockFlow - Gestione Spese",
+	"short_name": "StockFlow",
 	"start_url": "app/index.html",
 	"display": "standalone",
 	"background_color": "#ffffff",
