@@ -21,7 +21,7 @@ let pageName = arr[arr.length - 1].split(".")[0]
     "                </a>\n" +
     "\n" +
     "                <a href='#' class='nav-item "+(pageName === "inventory" ? "active" : "")+"' onclick='navigateTo(\"inventory\")'>\n" +
-    "                    <img src='../assets/icons/boxes.svg' alt='Inventory' style='height: 20px; width: 20px; filter: invert(1);'/>\n"+
+    "                    <img src='../assets/icons/boxes_old.svg' alt='Inventory' style='height: 20px; width: 20px; filter: invert(1);'/>\n"+
     "                    <span>Inventory</span>\n" +
     "                </a>\n" +
     "            </nav>";*/
