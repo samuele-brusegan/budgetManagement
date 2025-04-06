@@ -13,17 +13,49 @@
         <link rel="icon" href="../favicon.ico">
     </head>
     <style>
-        .swiper{
+        .swiper {
             width: 100%;
+            height: 100%;
         }
-        .slide1{
-            background-color: red;
+
+        .swiper-slide {
+            /*display: flex;*/
         }
-        .slide2{
-            background-color: green;
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-        .slide3{
-            background-color: blue;
+        div {
+            /*border: 1px solid var(--blue);*/
+        }
+        .delete-btn {
+            background: var(--red);
+            height: 100%;
+            width: 100%;
+            border-radius: 0 1rem 1rem 0;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            left: 2px;
+            z-index: -1;
+        }
+        .delete-btn-mask {
+            background: var(--card-bg);
+            height: 100%;
+            border-radius: 0 1rem 1rem 0;
+            width: 2rem;
+            z-index: 10;
+        }
+        div.swiper-slide.h-auto{
+            width: 20%;
+        }
+        @media (max-width: 767.98px) {
+            div.swiper-slide.h-auto{
+                width: 50%;
+            }
         }
     </style>
     <body data-bs-theme="dark">
@@ -33,25 +65,17 @@
 
 
             <div class="notifications-list" id="notifications-list">
-                <!-- Slider main container -->
                 <div class="swiper notification-card">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        <div class="swiper-slide me-3">
-                            <div>
-                                <h3 class="notification-title">NomeNotifica</h3>
-                                <p class="notification-subtitle">Sottotitolo</p>
-                            </div>
-                        </div>
+                    <div class="swiper-wrapper d-flex">
                         <div class="swiper-slide">
                             <div>
                                 <h3 class="notification-title">NomeNotifica</h3>
                                 <p class="notification-subtitle">Sottotitolo</p>
                             </div>
-                            <div style="background: red;">
-                                Elimina
-                            </div>
+                        </div>
+                        <div class="swiper-slide h-auto" style="position: relative;">
+                            <div class="delete-btn-mask"></div>
+                            <div class="delete-btn d-flex justify-content-center align-items-center">Elimina</div>
                         </div>
                     </div>
                 </div>
@@ -81,12 +105,8 @@
         </div>
     </body>
     <script>
-        const swiper = new Swiper('.swiper', {
-            // Optional parameters
-            direction: 'horizontal',
-            loop: false,
-        });
+
     </script>
-<!--    <script src="specificScript/notifications.js" type="module"></script>-->
+    <script src="specificScript/notifications.js" type="module"></script>
     <script src="../view/navbar.js"></script>
 </html>
