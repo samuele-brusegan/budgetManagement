@@ -37,7 +37,10 @@ function updateBar() {
     
 }
 function updatePieChart() {
-    const pieColors = ['#0088FE', '#00C49F', '#FFBB28'];
+    const pieColors = [
+        '#0088FE', '#00C49F', '#FFBB28', '#FF8042',
+        '#8884d8', '#82ca9d', '#ffc658', '#a45de0',
+        '#00bfff', '#ff69b4',];
     
     let categoryNames = [];
     let transactionsValueByCategory = [];

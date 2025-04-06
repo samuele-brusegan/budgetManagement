@@ -70,6 +70,16 @@ export function setCurrAccount(account){
     currentAccount = account; // Imposta il conto corrente
     //FIXME: UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
 }
+export function setCurrAccountById(id){
+    let accounts = getAccountList()
+    let account = accounts.find( function (account) {
+        console.log(parseInt(id), account.id)
+        return (account.id === parseInt(id))
+    });
+    if (account !== undefined) {
+        currentAccount = account; // Imposta il conto corrente
+    } else { alert("Account not found!") }
+}
 
 export function getCategoryList() {
     return Category.categoryList;

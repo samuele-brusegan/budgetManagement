@@ -36,6 +36,7 @@ export function getDev() {
 // DEVELOPER MODE BELOW
 
 export function cleanImport(val) {
+    Memory.warn_deleteAll()
     convertJsonToObjects(val);
     // localStorage.setItem("data_accountList", JSON.stringify(val.accounts));
     // localStorage.setItem("data_categories", JSON.stringify(val.categories));

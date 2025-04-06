@@ -34,6 +34,8 @@ function showTransactions(){
     });
     traList.style.marginBottom = "10vh"
 }
-document.getElementById("addBtn").addEventListener("click", () => {
-    navigateTo("modify-element")
+let addBtn = document.getElementById("addBtn");
+addBtn.addEventListener("click", () => {
+    addBtn.style.rotate = ((addBtn.style.rotate==='0deg')?45:0)+'deg';
+    console.log(addBtn.style.rotate)
 });

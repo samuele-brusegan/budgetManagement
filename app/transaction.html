@@ -12,45 +12,18 @@
     </head>
     <body data-bs-theme="dark">
         <!-- Transactions Page -->
-        <div class="app col-md-11 m-auto">
-            <h1 class="page-title">transazioni</h1>
-            <div class="my-card account-selector" id="account-selector">
-                <div>
-                    <h2 class="account-title">Conto 1</h2>
-                    <p class="account-subtitle">Risparmio</p>
-                </div>
-                <span class="dropdown-icon">▼</span>
-            </div>
+        <div class="app col-md-11 m-auto pb-3">
+            <h1 class="page-title">Transazioni</h1>
 
-            <div class="transactions-list" id="transactions-list">
-                <div class="transaction-card expense">
-                    <div>
-                        <h3 class="transaction-title">NomeTransazione_exp</h3>
-                        <p class="transaction-subtitle">MetodoPagamento</p>
-                    </div>
-                    <span class="transaction-amount">-€ VALUE</span>
-                </div>
+            <div id="account-selector"></div>
 
-                <div class="transaction-card income">
-                    <div>
-                        <h3 class="transaction-title">NomeTransazione_inc</h3>
-                        <p class="transaction-subtitle">MetodoPagamento</p>
-                    </div>
-                    <span class="transaction-amount">+€ VALUE</span>
-                </div>
+            <div class="transactions-list" id="transactions-list"></div>
 
-                <div class="transaction-card expense">
-                    <div>
-                        <h3 class="transaction-title">NomeTransazione_exp</h3>
-                        <p class="transaction-subtitle">MetodoPagamento</p>
-                    </div>
-                    <span class="transaction-amount">-€ VALUE</span>
-                </div>
-            </div>
-            <div id="addBtn" style="background: #2196F3; border-radius: 4rem; height: 4rem; width: 4rem; position: fixed; bottom: 5.25rem; right: 15px; z-index: 5; font-size: 3.25rem" class="d-flex justify-content-center align-items-center"><p>+</p></div>
-            <div id="lowerNavbar"/>
+            <div id="addBtn" class="add-btn"><div>+</div></div>
+            <div id="lowerNavbar"></div>
         </div>
     </body>
     <script src="specificScript/transactions.js" type="module"></script>
     <script src="../view/navbar.js"></script>
+    <script src="../view/accountSelector.js" type="module"></script>
 </html>

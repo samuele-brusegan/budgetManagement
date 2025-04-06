@@ -16,7 +16,7 @@ rigthDiv.innerHTML += icons[1]
 topbar.appendChild(rigthDiv)
 
 document.getElementById('notification-icon').addEventListener("click", () => {
-    alert("Notifications!")
+    navigateTo("notification")
 });
 document.getElementById('settings-icon').addEventListener("click", () => {
     navigateTo("settings")
