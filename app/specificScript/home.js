@@ -8,7 +8,7 @@ updatePieChart()
 
 function updateBar() {
     let accList = Ctrl.getAccountList()
-    accList.forEach((val) => {console.log(val)});
+    // accList.forEach((val) => {console.log(val)});
     
     let totalIncome = 0;
     let total = 0;
@@ -23,7 +23,7 @@ function updateBar() {
             }
         });
     });
-    console.log("total:", total, "totalIncome", totalIncome)
+    // console.log("total:", total, "totalIncome", totalIncome)
     if(total !== 0) {
         let len = (totalIncome / total) * 100;
         document.querySelector(".progress-container").querySelector(".progress-fill").style.width = (len + '%');
@@ -58,14 +58,12 @@ function updatePieChart() {
                 }
             }
         });
-        console.log(categoryNames, transactionsValueByCategory)
+        // console.log(categoryNames, transactionsValueByCategory)
         
         let colors = [pieColors[0]];
         for (let i = 1; colors.length <= categoryNames.length; (i + 1 < pieColors.length) ? i++ : i = 0) {
             colors.push(pieColors[i]);
-            console.log("i", i)
         }
-        console.log(colors)
         pieChart?.destroy();
         let ctx = document.getElementById('pieChart').getContext('2d');
         

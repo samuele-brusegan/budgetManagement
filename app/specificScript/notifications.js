@@ -1,5 +1,6 @@
 let list = document.getElementById("notifications-list")
 list.innerHTML = ""
+// notificationArr.forEach(notification => {});
 for (let i = 0; i < 12; i++) {
     let swiper = document.createElement("div");
     swiper.className = "swiper notification-card";

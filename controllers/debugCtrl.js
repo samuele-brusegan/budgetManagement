@@ -109,7 +109,7 @@ export function convertJsonToObjects(jsonData) {
                 //     );
                 // });
             }
-            console.log(newAccount.transactions)
+            // console.log(newAccount.transactions)
             convertedAccounts.push(newAccount);
         });
     }

@@ -7,7 +7,7 @@ const fileName = "data"
  * Funzione per salvare i dati nella memoria locale.
  */
 export function save(){
-    //console.log("SAVE")
+    // console.log("SAVE")
     // console.log(Conto.accountList)
     let jsonStringAccList = JSON.stringify(Conto.accountList, null, 2);
     // console.log(jsonStringAccList)//FIXME: Qui le transazioni arrivano
@@ -18,7 +18,7 @@ export function save(){
  * Funzione per caricare i dati dalla memoria locale.
  */
 export function load(){
-    console.log("LOAD")
+    // console.log("LOAD")
     if(localStorage.getItem(fileName+"_accountList") !== "{}") {
         let accountListJSON = JSON.parse(localStorage.getItem(fileName+"_accountList"));
         accountListJSON?.forEach((elem) => {
@@ -30,9 +30,6 @@ export function load(){
             );
             // Convert transactions
             if (elem._transactionList) {
-                elem._transactionList.forEach((transaction)=>{
-                    console.log(transaction)
-                });
                 newAccount.addManyTransactions(elem._transactionList)
             }
         });
@@ -51,7 +48,7 @@ export function load(){
  * Funzione per eliminare tutti i dati dalla memoria locale.
  */
 export function warn_deleteAll(){
-    console.log("DELETED!")
+    // console.log("DELETED!")
     localStorage.setItem(fileName+"_accountList", "{}");
     localStorage.setItem(fileName+"_categories",  "{}");
 }

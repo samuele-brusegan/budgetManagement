@@ -19,13 +19,13 @@ data.forEach((item) => {
     if(item.svg === undefined){
         a.innerHTML = item.img;
         const span = document.createElement("span");
-        console.log("!!!", item.title)
+        // console.log("!!!", item.title)
         span.innerText = item.title;
         a.appendChild(span);
     } else {
         a.innerHTML = item.svg;
         const span = document.createElement("span");
-        console.log(item.title, item.svg)
+        // console.log(item.title, item.svg)
         span.innerText = item.title;
         a.appendChild(span);
     }
