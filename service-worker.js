@@ -58,7 +58,8 @@ const ASSETS_TO_CACHE = [
     "./view/accountSelector.js",
     "./view/navbar.js",
     "./view/topbar.js",
-    "./view/ui.js"
+    "./view/ui.js",
+    "https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap"
 ];
 
 // Installazione del Service Worker
@@ -68,7 +69,11 @@ self.addEventListener("install", (e) => {
         (async () => {
             const cache = await caches.open(CACHE_NAME);
             console.log("[Service Worker] Caching all: app shell and content");
-            await cache.addAll(ASSETS_TO_CACHE);
+            try{
+                await cache.addAll(ASSETS_TO_CACHE);
+            } catch (e) {
+                console.log(e)
+            }
         })(),
     );
 });
