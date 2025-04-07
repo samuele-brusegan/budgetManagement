@@ -10,14 +10,7 @@ let currentAccount; // Conto corrente selezionato
 
 initMemory() // Inizializza la memoria
 
-//TODO: rem test
-// noinspection PointlessBooleanExpressionJS
-if(false){
-    // noinspection UnreachableCodeJS
-    Conto.accountList = [new Conto("Acc0"), new Conto("Acc1"), new Conto("Acc2"), new Conto("Acc3")];
-    currentAccount = Conto.accountList[0];
-    UI.updateAccountList(Conto.accountList, currentAccount);
-}
+//DEBUG: if(false){ Conto.accountList = [new Conto("Acc0"), new Conto("Acc1"), new Conto("Acc2"), new Conto("Acc3")]; currentAccount = Conto.accountList[0]; }
 
 /**
  * Crea una nuova transazione e la aggiunge al conto corrente.
@@ -28,7 +21,6 @@ if(false){
 export function createTransaction(value, type, date) {
     let transaction = new Transaction(value, type, date); // Crea una nuova transazione
     currentAccount.addTransaction(transaction); // Aggiunge la transazione al conto corrente
-    //FIXME: UI.showConto(currentAccount); // Aggiorna la UI
 }
 
 /**
@@ -38,8 +30,7 @@ export function createTransaction(value, type, date) {
  * @param {string} currency - La valuta del conto.
  */
 export function addConto(name, value, currency){
-    currentAccount = new Conto(name, value, currency); // Crea un nuovo conto
-    //FIXME: UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
+    setCurrAccount(new Conto(name, value, currency)); // Crea un nuovo conto
 }
 
 /**
@@ -50,8 +41,8 @@ export function remConto(id){
     Conto.accountList.forEach((account, i) => { // Cerca il conto da rimuovere
         if(account.id === id) Conto.accountList.splice(i, 1); // Rimuove il conto dalla lista
     });
-    currentAccount = (Conto.accountList.length > 0)? Conto.accountList[0]: nullAccount; // Imposta il conto corrente al primo conto della lista o al conto di default
-    //FIXME: UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
+    
+    setCurrAccount((Conto.accountList.length > 0)? Conto.accountList[0]: nullAccount) // Imposta il conto corrente al primo conto della lista o al conto di default
 }
 
 /**
@@ -68,17 +59,17 @@ export function getCurrAccount(){
  */
 export function setCurrAccount(account){
     currentAccount = account; // Imposta il conto corrente
-    //FIXME: UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
+    sessionStorage.setItem("currentAccountID", currentAccount.id)
 }
 export function setCurrAccountById(id){
     let accounts = getAccountList()
-    let account = accounts.find( function (account) {
-        console.log(parseInt(id), account.id)
-        return (account.id === parseInt(id))
-    });
+    console.log(accounts)
+    let account = accounts.find( function (account) { return (account.id === parseInt(id)) });
     if (account !== undefined) {
-        currentAccount = account; // Imposta il conto corrente
-    } else { alert("Account not found!") }
+        setCurrAccount(account);
+    } else {
+        alert("Account not found!")
+    }
 }
 
 export function getCategoryList() {
@@ -102,10 +93,13 @@ export function saveData(){
  */
 export function loadData(){
     Memory.load() // Carica i dati
-    currentAccount = currentAccount ?? Conto.accountList[0] ?? nullAccount; // Imposta il conto corrente al primo conto della lista o al conto di default
-    //FIXME: UI.updateAccountList(Conto.accountList, currentAccount); // Aggiorna la UI
-    //FIXME: UI.showConto(currentAccount); // Mostra il conto corrente
-    //FIXME: UI.showCatagoryList(Category.categoryList, "categoryTree");
+    if(sessionStorage.currentAccountID && sessionStorage.currentAccountID !== "-101"){
+        setCurrAccountById(sessionStorage.currentAccountID)
+    } else {
+        // Imposta il conto corrente al primo conto della lista o al conto di default
+        setCurrAccount(currentAccount ?? Conto.accountList[0] ?? nullAccount);
+        sessionStorage.setItem("currentAccountID", currentAccount.id)
+    }
 }
 
 /**
@@ -134,14 +128,13 @@ function loadFromJSON(path, list, Class) {
         })
         .then(data => {
             // Qui puoi usare i dati del JSON
-            // console.log("data", data)
-            data.forEach(obj => { // Per ogni oggetto nel JSON
+            // Per ogni oggetto nel JSON
+            data.forEach((obj) => {
+                //TODO: Aggiungi in ogni classe una lista degli parametri costruttore, qui chiama obj[Class.params[0]]
                 let newObj = new Class(obj.name, obj.description, obj["parentCategoryID"]); // Crea un nuovo oggetto della classe specificata
-                // console.log(newObj)
                 list.push(newObj) // Aggiunge l'oggetto alla lista
             });
             saveData() // Salva i dati nella memoria persistente
-            //FIXME: UI.showCatagoryList(Category.categoryList, "categoryTree");
         })
         .catch(error => {
             console.error('Errore durante il caricamento del file JSON:', error);

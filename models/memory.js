@@ -8,9 +8,7 @@ const fileName = "data"
  */
 export function save(){
     // console.log("SAVE")
-    // console.log(Conto.accountList)
     let jsonStringAccList = JSON.stringify(Conto.accountList, null, 2);
-    // console.log(jsonStringAccList)//FIXME: Qui le transazioni arrivano
     localStorage.setItem(fileName+"_accountList", jsonStringAccList);
     localStorage.setItem(fileName+"_categories",  JSON.stringify(Category.categoryList));
 }
@@ -26,21 +24,16 @@ export function load(){
                 elem["_name"],
                 elem["_value"],
                 elem["_currency"],
-                // elem["_transactionList"]
             );
             // Convert transactions
             if (elem._transactionList) {
                 newAccount.addManyTransactions(elem._transactionList)
             }
         });
-        // console.log("LEN:", Conto.accountList)
         if(Conto.accountList.length === 0){
             console.log("Adding new default account")
-            // Controller.setCurrAccount(new Conto("Account", 0, '$'))
         }
     }
-    
-    
     
     Category.categoryList = JSON.parse(localStorage.getItem(fileName+"_categories"));
 }
@@ -48,7 +41,7 @@ export function load(){
  * Funzione per eliminare tutti i dati dalla memoria locale.
  */
 export function warn_deleteAll(){
-    // console.log("DELETED!")
+    console.log("DELETED!")
     localStorage.setItem(fileName+"_accountList", "{}");
     localStorage.setItem(fileName+"_categories",  "{}");
 }

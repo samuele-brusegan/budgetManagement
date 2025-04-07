@@ -1,5 +1,5 @@
 import * as Ctrl from "../controllers/Controller.js"
-
+import * as TransactionJS from "../app/specificScript/transactions.js"
 updateAccountList()
 
 function updateAccountList() {
@@ -66,8 +66,10 @@ function updateAccountList() {
     accountBtns.forEach(btn => {
         btn.addEventListener("click", () => {
             let uid = btn.getAttribute("uid")
+            console.log("uid:", uid)
             Ctrl.setCurrAccountById(uid)
             updateAccountList()
+            TransactionJS.showTransactions();
         });
     });
 }

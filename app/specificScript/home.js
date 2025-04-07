@@ -4,17 +4,19 @@ import * as Ctrl from "../../controllers/Controller.js";
 let pieChart;
 
 updateBar()
+
 updatePieChart()
 
 function updateBar() {
     let accList = Ctrl.getAccountList()
+    let currAcc = Ctrl.getCurrAccount()
     // accList.forEach((val) => {console.log(val)});
     
     let totalIncome = 0;
     let total = 0;
-    accList.forEach((account, i) => {
+    // accList.forEach((account, i) => {
         // console.log("Transactions:", account.transactions);
-        account.transactions?.forEach((transaction) => {
+        currAcc.transactions?.forEach((transaction) => {
             // console.log(transaction._value)
             let transactionValue = transaction._value;
             total += Math.abs(transactionValue);
@@ -22,13 +24,13 @@ function updateBar() {
                 totalIncome += transactionValue;
             }
         });
-    });
+    // });
     // console.log("total:", total, "totalIncome", totalIncome)
     if(total !== 0) {
         let len = (totalIncome / total) * 100;
         document.querySelector(".progress-container").querySelector(".progress-fill").style.width = (len + '%');
         document.getElementById("progress-number").style.width = ((len + 1) + '%');
-        document.getElementById("progress-number").innerText = (len !== 100) ? (Math.round(len * 4) / 4 + '%') : ''
+        document.getElementById("progress-number").innerText = (len !== 100 && len !== 0) ? (Math.round(len * 4) / 4 + '%') : ''
     } else {
         document.querySelector(".progress-container").querySelector(".progress-fill").style.width = '0%';
         document.querySelector(".progress-bar").style.backgroundColor = '#555';
@@ -46,7 +48,8 @@ function updatePieChart() {
     let transactionsValueByCategory = [];
     
     let transactions = Ctrl.getCurrAccount().transactions;
-    if(transactions.length > 0){
+    try {
+        if(transactions.length === 0) throw "Nessuna transazione"
         transactions.forEach((transaction) => {
             if (transaction._value < 0) {
                 if (!categoryNames.includes(transaction._category)) {
@@ -59,6 +62,7 @@ function updatePieChart() {
             }
         });
         // console.log(categoryNames, transactionsValueByCategory)
+        if (transactionsValueByCategory.length === 0) throw "Nessuna transazione in uscita"
         
         let colors = [pieColors[0]];
         for (let i = 1; colors.length <= categoryNames.length; (i + 1 < pieColors.length) ? i++ : i = 0) {
@@ -93,7 +97,7 @@ function updatePieChart() {
         };
         
         pieChart = new Chart(ctx, config);
-    } else {
-        document.querySelector(".chart-container").innerText = "Nessuna transazione";
+    } catch (e) {
+        document.querySelector(".chart-container").innerText = e;
     }
 }

@@ -12,38 +12,60 @@
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" href="../favicon.ico">
     </head>
+    <style>
+        body {
+            background: #111;
+        }
+        .product-card {
+            background: #373535;
+            border-radius: 1rem;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
     <body data-bs-theme="dark">
         <!-- Home Page Content -->
         <div id="topbar"></div>
-        <div id="home-page" class="col-md-11 app">
-
-            <div class="my-card">
-                <div class="my-card-header">
+        <div id="inventory-page" class="col-md-11 app">
+            <div class="products-list" id="products-list">
+                <div class="product-card">
                     <div>
-                        <h2 class="account-title">conto 1</h2>
-                        <p class="account-subtitle">risparmio</p>
+                        <h3 class="product-title">NomeProdotto</h3>
+                        <p class="product-subtitle">Breve descrizione</p>
                     </div>
-                    <div class="action-buttons">
-                        <button class="action-btn">+</button>
-                        <button class="action-btn">-</button>
+                </div>
+                <div class="product-card d-flex justify-content-between align-items-center h-auto">
+                    <div class="d-flex align-items-center justify-content-start">
+                        <img src="../assets/placeholder.svg" style="width: 5rem; border-radius: 1rem; height: auto; margin: 0 10px 0 0 " alt="placeholder">
+                        <div>
+                            <h3 class="product-title">NomeProdotto</h3>
+                            <p class="product-subtitle">Breve descrizione</p>
+                        </div>
+                    </div>
+                    <div style="background: white; border-radius: 1rem; width: 4rem; height: 5rem; text-align: center; color: black; position: relative;" class="d-flex flex-column justify-content-center">
+                        <div class="h-75 w-100" style="position: absolute; top: 0; display: flex; justify-content: center; align-items: center; font-size: 2rem">17</div>
+                        <div class="d-flex w-100" style="position: absolute; bottom: 0;">
+                            <div style="width: 50%;">+</div>
+                            <div style="width: 50%; background: #d9d9d9; border-radius: 0 0 1rem 0;">-</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="chart-container d-flex justify-content-center align-items-center">
-                    <canvas id="pieChart"></canvas>
+                <div class="product-card">
+                    <div>
+                        <h3 class="product-title">NomeProdotto</h3>
+                        <p class="product-subtitle">Breve descrizione</p>
+                    </div>
                 </div>
 
-                <div class="progress-container" x-data="{len: 0}">
-                    <div class="progress-bar" style="width: 96%; margin: auto;">
-                        <div class="progress-fill" :style="{width: len + '%'}"></div>
-                    </div>
-                    <div class="progress-labels">
-                        <span>0%</span>
-                        <div style="width: 100%;"><div id="progress-number" style="text-align: end"></div></div>
-                        <span>100%</span>
+                <div class="product-card">
+                    <div>
+                        <h3 class="product-title">NomeProdotto</h3>
+                        <p class="product-subtitle">Breve descrizione</p>
                     </div>
                 </div>
             </div>
+            
             <div id="lowerNavbar"/>
         </div>
         <script src="../view/navbar.js"></script>
