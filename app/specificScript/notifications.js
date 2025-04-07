@@ -1,7 +1,17 @@
 let list = document.getElementById("notifications-list")
 list.innerHTML = ""
-// notificationArr.forEach(notification => {});
-for (let i = 0; i < 12; i++) {
+let notificationArr = [
+    {"title": "Notification 1", "text": "Notification 1", "id": 0},
+    {"title": "Notification 1", "text": "Notification 1", "id": 1},
+    {"title": "Notification 1", "text": "Notification 1", "id": 2},
+    {"title": "Notification 1", "text": "Notification 1", "id": 3},
+    {"title": "Notification 1", "text": "Notification 1", "id": 4},
+    {"title": "Notification 1", "text": "Notification 1", "id": 5},
+    {"title": "Notification 1", "text": "Notification 1", "id": 6},
+    {"title": "Notification 1", "text": "Notification 1", "id": 7},
+    {"title": "Notification 1", "text": "Notification 1", "id": 8},
+]
+notificationArr.forEach(notification => {
     let swiper = document.createElement("div");
     swiper.className = "swiper notification-card";
         let swWrap = document.createElement("div");
@@ -11,10 +21,10 @@ for (let i = 0; i < 12; i++) {
                 let div = document.createElement("div");
                     let h3 = document.createElement("h3");
                     h3.className = "notification-title";
-                    h3.innerText = "NomeNotifica";
+                    h3.innerText = notification.title;
                     let p = document.createElement("p");
                     p.className = "notification-subtitle";
-                    p.innerText = "Sottotitolo";
+                    p.innerText = notification.text;
                 div.appendChild(h3);
                 div.appendChild(p);
             notificationBody.appendChild(div)
@@ -25,6 +35,7 @@ for (let i = 0; i < 12; i++) {
                 delBtnMask.className = "delete-btn-mask";
                 let delBtn = document.createElement("div");
                 delBtn.className = "delete-btn d-flex justify-content-center align-items-center";
+                delBtn.setAttribute("uid", notification.id);
                 delBtn.innerText = "Elimina";
             delBtnDiv.appendChild(delBtnMask);
             delBtnDiv.appendChild(delBtn);
@@ -32,7 +43,9 @@ for (let i = 0; i < 12; i++) {
         swWrap.appendChild(delBtnDiv)
     swiper.appendChild(swWrap)
 list.appendChild(swiper)
-}
+
+});
+
 var swiper = new Swiper(".swiper", {
     slidesPerView: "auto",
     pagination: {
