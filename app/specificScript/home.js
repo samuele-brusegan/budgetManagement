@@ -69,7 +69,7 @@ function updatePieChart() {
             colors.push(pieColors[i]);
         }
         pieChart?.destroy();
-        let ctx = document.getElementById('pieChart').getContext('2d');
+        let ctx = document.getElementById('pieChartHome').getContext('2d');
         
         const data = {
             labels: categoryNames,
