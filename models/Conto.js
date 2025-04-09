@@ -15,8 +15,9 @@ export class Conto {
      * @param {string} [currency='€'] - La valuta del conto (opzionale, default: '€').
      * @param transaction
      */
-    constructor(name, value=0, currency="€", transaction = null) {
+    constructor(name, value=0, currency="€") {
         this._transactionList = [];
+        this._inventory = [];
         this._name = name;
         this._value = parseInt(value);
         this._currency = currency;
@@ -53,6 +54,34 @@ export class Conto {
     addManyTransactions(transactions){
         transactions.forEach((transaction) => {
             this._transactionList.push(new Transaction(transaction._value, transaction._category, transaction._date, transaction._name))
+        });
+        Memory.save(); // Salva i dati nella memoria persistente
+    }
+    
+    
+    /**
+     * Aggiunge un oggetto al conto.
+     * @param {Item} item - L'oggetto da aggiungere.
+     */
+    addItem(item) {
+        this._inventory.push(item); // Aggiunge la transazione alla lista
+        Memory.save(); // Salva i dati nella memoria persistente
+    }
+    
+    /**
+     * Rimuove un oggetto dal conto.
+     * @param {Item} item - L' oggetto da rimuovere.
+     */
+    remItem(item){
+        this._inventory.forEach((obj, i) => {
+            if(obj.id === item.id) this._transactionList.splice(i, 1);
+        });
+        Memory.save(); // Salva i dati nella memoria persistente
+    }
+    
+    addManyItems(items){
+        items.forEach(item => {
+            this._inventory.push(new Item(item.name, item.quantity, item.tag, item.description))
         });
         Memory.save(); // Salva i dati nella memoria persistente
     }

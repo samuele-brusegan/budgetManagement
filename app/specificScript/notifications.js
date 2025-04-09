@@ -1,14 +1,4 @@
-let notificationArr = [
-    // {"title": "Notification 1", "text": "Notification 1", "id": 0},
-    // {"title": "Notification 1", "text": "Notification 1", "id": 1},
-    // {"title": "Notification 1", "text": "Notification 1", "id": 2},
-    // {"title": "Notification 1", "text": "Notification 1", "id": 3},
-    // {"title": "Notification 1", "text": "Notification 1", "id": 4},
-    // {"title": "Notification 1", "text": "Notification 1", "id": 5},
-    // {"title": "Notification 1", "text": "Notification 1", "id": 6},
-    // {"title": "Notification 1", "text": "Notification 1", "id": 7},
-    // {"title": "Notification 1", "text": "Notification 1", "id": 8},
-]
+let notificationArr = []
 for (let i = 1; i <= 10; i++) {
     notificationArr.push({"title": `Notification ${i}`, "text": `Notification ${i}`, "id": i})
 }
