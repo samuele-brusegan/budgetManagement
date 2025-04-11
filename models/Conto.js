@@ -76,14 +76,15 @@ export class Conto {
      */
     remItem(item){
         this._inventory.forEach((obj, i) => {
-            if(obj.id === item.id) this._transactionList.splice(i, 1);
+            if(obj.id === item.id) this._inventory.splice(i, 1);
         });
         Memory.save(); // Salva i dati nella memoria persistente
     }
     
     addManyItems(items){
         items.forEach(item => {
-            this._inventory.push(new Item(item.name, item.quantity, item.tag, item.description))
+            let i = new Item(item._name, item._quantity, item._tag, item._description)
+            this._inventory.push(i)
         });
         Memory.save(); // Salva i dati nella memoria persistente
     }

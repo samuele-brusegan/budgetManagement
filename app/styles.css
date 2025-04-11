@@ -437,24 +437,26 @@ input:checked + .slider:before {
     margin-top: 4px;
 }
 .add-btn {
-    transition: rotate 1s;
-    background: #2196F3;
-    border-radius: 4rem;
-    height: 4rem;
-    width: 4rem;
+    display: grid;
     position: fixed;
     bottom: 5.25rem;
     right: 15px;
-    z-index: 5;
+
+    background: #2196F3;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 4rem;
     font-size: 3.25rem;
-    display: grid;
     place-items: center;
+
+    z-index: 5;
+
+    transition: rotate 1s;
 }
-.add-btn > div {
-    color: white;
-    position: absolute;
+.add-btn > img {
     height: 50%;
-    transform: translate(0, -95%);
+    width: 50%;
+    filter: invert(1);
 }
 .add-icon {
     width: 40px;

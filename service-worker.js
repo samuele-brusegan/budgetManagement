@@ -1,3 +1,4 @@
+/*
 const CACHE_NAME = "spese-app-v1";
 
 const ASSETS_TO_CACHE = [
@@ -80,19 +81,20 @@ self.addEventListener("install", (e) => {
 
 // Intercettazione delle richieste di rete
 self.addEventListener("fetch", (e) => {
-    // e.respondWith(
-    //     (async () => {
-    //         const r = await caches.match(e.request);
-    //         console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
-    //         if (r) {
-    //             return r;
-    //         }
-    //         const response = await fetch(e.request);
-    //         const cache = await caches.open(CACHE_NAME);
-    //         console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
-    //         await cache.put(e.request, response.clone());
-    //         return response;
-    //     })(),
-    // );
+    e.respondWith(
+        (async () => {
+            const r = await caches.match(e.request);
+            console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
+            if (r) {
+                return r;
+            }
+            const response = await fetch(e.request);
+            const cache = await caches.open(CACHE_NAME);
+            console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
+            await cache.put(e.request, response.clone());
+            return response;
+        })(),
+    );
 });
 
+*/

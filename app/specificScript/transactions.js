@@ -36,8 +36,17 @@ export function showTransactions(){
         traList.style.marginBottom = "10vh"
     }
 }
+
 let addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", () => {
-    addBtn.style.rotate = ((addBtn.style.rotate==='0deg')?45:0)+'deg';
+    addBtn.style.rotate === "45deg" ? addBtn.style.rotate = "0deg" : addBtn.style.rotate = "45deg"
     // console.log(addBtn.style.rotate)
+});
+let isShown = false;
+document.getElementById("addBtn").addEventListener("click", () => {
+    document.getElementById("add-container").hidden = isShown
+    isShown = !isShown
+});
+document.getElementById("newTransactionBtn").addEventListener("click", () => {
+    navigateTo("new-transaction")
 });

@@ -243,7 +243,26 @@
                             "_category": "Interest"
                         }
                     ],
-                    "_inventory": []
+                    "_inventory": [
+                        {
+                            "_name": "Laptop",
+                            "_quantity": 1,
+                            "_tag": "Electronics",
+                            "_description": "Work laptop"
+                        },
+                        {
+                            "_name": "Monitor",
+                            "_quantity": 2,
+                            "_tag": "Electronics",
+                            "_description": "External monitors"
+                        },
+                        {
+                            "_name": "Keyboard",
+                            "_quantity": 1,
+                            "_tag": "Electronics",
+                            "_description": "Mechanical keyboard"
+                        }
+                    ]
                 },
                 {
                     "_name": "Credit Card",
@@ -269,7 +288,26 @@
                             "_category": "Transportation"
                         }
                     ],
-                    "_inventory": []
+                    "_inventory": [
+                        {
+                            "_name": "Laptop",
+                            "_quantity": 1,
+                            "_tag": "Electronics",
+                            "_description": "Work laptop"
+                        },
+                        {
+                            "_name": "Monitor",
+                            "_quantity": 2,
+                            "_tag": "Electronics",
+                            "_description": "External monitors"
+                        },
+                        {
+                            "_name": "Keyboard",
+                            "_quantity": 1,
+                            "_tag": "Electronics",
+                            "_description": "Mechanical keyboard"
+                        }
+                    ]
                 }
             ],
             "categories": [

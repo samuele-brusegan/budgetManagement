@@ -10,116 +10,16 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <link rel="manifest" href="../manifest.json" />
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles/inventory.css">
         <link rel="icon" href="../favicon.ico">
     </head>
-    <style>
-        body {
-            background: #111;
-        }
-        .product-card {
-            background: #373535;
-            border-radius: 1rem;
-            padding: 10px;
-            margin: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: auto;
-        }
-        .product-image {
-            width: 5rem;
-            border-radius: 1rem;
-            height: auto;
-            margin: 0 10px 0 0
-        }
-        .quantity-container {
-            background: white;
-            border-radius: 1rem;
-            width: 4rem;
-            height: 5rem;
-            text-align: center;
-            color: black;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .quantity-counter {
-            position: absolute;
-            top: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            height: 75%;
-            width: 100%;
-        }
-        .quantity-btn-container {
-            position: absolute;
-            bottom: 0;
-            display: flex;
-            width: 100%;
-        }
-        .quantity-btn{
-            width: 50%;
-        }
-        .quantity-btn:hover{
-            background: #d9d9d9; 
-        }
-        .quantity-btn:hover:first-child{
-            border-radius: 0 0 0 1rem;
-        }
-        .quantity-btn:hover:last-child{
-            border-radius: 0 0 1rem 0;
-        }
-    </style>
     <body data-bs-theme="dark">
         <!-- Home Page Content -->
         <div id="topbar"></div>
         <div id="inventory-page" class="col-md-11 app">
-            <div class="products-list" id="products-list">
-                <div class="product-card">
-                    <div>
-                        <h3 class="product-title">NomeProdotto</h3>
-                        <p class="product-subtitle">Breve descrizione</p>
-                    </div>
-                </div>
 
-                <!-- Product Card -->
-                <div class="product-card d-flex justify-content-between align-items-center h-auto">
-                    <!-- Image and Description -->
-                    <div class="d-flex align-items-center justify-content-start">
-                        <img src="../assets/placeholder.svg" class="product-image" alt="placeholder">
-                        <div>
-                            <h3 class="product-title">NomeProdotto</h3>
-                            <p class="product-subtitle">Breve descrizione</p>
-                        </div>
-                    </div>
-                    <!-- Quantity Counter -->
-                    <div class="quantity-container">
-                        <div class="quantity-counter">17</div>
-                        <div class="quantity-btn-container">
-                            <div class="quantity-btn">+</div>
-                            <div class="quantity-btn">-</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="products-list" id="products-list"></div>
 
-                <div class="product-card">
-                    <div>
-                        <h3 class="product-title">NomeProdotto</h3>
-                        <p class="product-subtitle">Breve descrizione</p>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div>
-                        <h3 class="product-title">NomeProdotto</h3>
-                        <p class="product-subtitle">Breve descrizione</p>
-                    </div>
-                </div>
-            </div>
-            
             <div id="lowerNavbar"/>
         </div>
         <script src="../view/navbar.js"></script>

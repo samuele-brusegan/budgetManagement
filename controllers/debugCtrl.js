@@ -100,16 +100,8 @@ export function convertJsonToObjects(jsonData) {
             // Convert transactions
             if (accountData._transactionList) {
                 newAccount.addManyTransactions(accountData._transactionList)
-                // accountData._transactionList.forEach((transactionData) => {
-                //     newAccount.addTransaction(
-                //         transactionData._name,
-                //         transactionData._value,
-                //         transactionData._date,
-                //         transactionData._category
-                //     );
-                // });
+                newAccount.addManyItems(accountData._inventory)
             }
-            // console.log(newAccount.transactions)
             convertedAccounts.push(newAccount);
         });
     }

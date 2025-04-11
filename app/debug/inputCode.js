@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 presetButton.addEventListener("click", () => {
                     Ctrl.cleanImport(preset.data);
                     console.log(`Test preset "${preset.name}" loaded.`); // More informative console log
+                    console.log(preset.data)
                     alert(`Test preset "${preset.name}" loaded.`);
                 });
                 testPresetsDiv.appendChild(presetButton);
