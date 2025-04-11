@@ -1,5 +1,7 @@
 import * as Memory from "./memory.js";
 import {Transaction} from "./Transaction.js";
+import {Item} from "./Item.js";
+
 
 /**
  * Classe per rappresentare un conto.
@@ -148,5 +150,17 @@ export class Conto {
      */
     get id() {
         return this._id;
+    }
+    
+    /**
+     * Restituisce l'inventario del conto.
+     * @returns {Array<Item>} L'inventario del conto.
+     */
+    get inventory(){
+        return this._inventory;
+    }
+    
+    set inventory(value){
+        this._inventory = value;
     }
 }

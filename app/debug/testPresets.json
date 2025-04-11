@@ -69,6 +69,20 @@
                             "_date": "2024-02-15",
                             "_category": "Rent"
                         }
+                    ],
+                    "_inventory": [
+                        {
+                            "_name": "Stapler",
+                            "_quantity": 1,
+                            "_tag": "Office Supplies",
+                            "_description": "Red stapler"
+                        },
+                        {
+                            "_name": "Pens",
+                            "_quantity": 12,
+                            "_tag": "Office Supplies",
+                            "_description": "Box of blue pens"
+                        }
                     ]
                 },
                 {
@@ -82,7 +96,8 @@
                             "_date": "2023-12-01",
                             "_category": "Savings"
                         }
-                    ]
+                    ],
+                    "_inventory": []
                 }
             ],
             "categories": [
@@ -164,6 +179,26 @@
                             "_date": "2024-03-28",
                             "_category": "Food"
                         }
+                    ],
+                    "_inventory": [
+                        {
+                            "_name": "Laptop",
+                            "_quantity": 1,
+                            "_tag": "Electronics",
+                            "_description": "Work laptop"
+                        },
+                        {
+                            "_name": "Monitor",
+                            "_quantity": 2,
+                            "_tag": "Electronics",
+                            "_description": "External monitors"
+                        },
+                        {
+                            "_name": "Keyboard",
+                            "_quantity": 1,
+                            "_tag": "Electronics",
+                            "_description": "Mechanical keyboard"
+                        }
                     ]
                 },
                 {
@@ -207,7 +242,8 @@
                             "_date": "2024-03-01",
                             "_category": "Interest"
                         }
-                    ]
+                    ],
+                    "_inventory": []
                 },
                 {
                     "_name": "Credit Card",
@@ -232,7 +268,8 @@
                             "_date": "2024-03-25",
                             "_category": "Transportation"
                         }
-                    ]
+                    ],
+                    "_inventory": []
                 }
             ],
             "categories": [

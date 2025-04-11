@@ -1,11 +1,10 @@
+// /app/spScript/inv.js
+
 import {Item} from "../../models/Item.js"
-let list = document.getElementById("products-list")
-let products = [
-    new Item("Quinoa", "17", null, "Lorem ipsum dolor sit amet"),
-    new Item("QuinoB", "18", null, "Lorem ipsum dolor sit amet"),
-    new Item("QuinoC", "08", null, "Lorem ipsum dolor sit amet"),
-    new Item("QuinoD", "56", null, "Lorem ipsum dolor sit amet"),
-]
+import * as Ctrl from "../../controllers/Controller.js"
+
+let list = document.getElementById("products-list");
+let products = Ctrl.getCurrAccount().inventory;
 
 showProductList()
 

@@ -1,4 +1,4 @@
-class Item {
+export class Item {
     static objCounter = 0;
     
     constructor(name, quantity = 0, tag=null, descr=""){

@@ -41,7 +41,7 @@ function loadAccount() {
                 newAccount.addManyTransactions(elem._transactionList)
             }
             if (elem._inventory) {
-                newAccount.addManyItems(elem._transactionList)
+                newAccount.addManyItems(elem._inventory)
             }
         });
         if(Conto.accountList.length === 0){

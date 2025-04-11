@@ -78,35 +78,21 @@ self.addEventListener("install", (e) => {
     );
 });
 
-
-// Attivazione del Service Worker
-// self.addEventListener("activate", (event) => {
-//     event.waitUntil(
-//         caches.keys().then((cacheNames) => {
-//             return Promise.all(
-//                 cacheNames
-//                     .filter((name) => name !== CACHE_NAME)
-//                     .map((name) => caches.delete(name))
-//             );
-//         })
-//     );
-// });
-
 // Intercettazione delle richieste di rete
 self.addEventListener("fetch", (e) => {
-    e.respondWith(
-        (async () => {
-            const r = await caches.match(e.request);
-            console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
-            if (r) {
-                return r;
-            }
-            const response = await fetch(e.request);
-            const cache = await caches.open(CACHE_NAME);
-            console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
-            await cache.put(e.request, response.clone());
-            return response;
-        })(),
-    );
+    // e.respondWith(
+    //     (async () => {
+    //         const r = await caches.match(e.request);
+    //         console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
+    //         if (r) {
+    //             return r;
+    //         }
+    //         const response = await fetch(e.request);
+    //         const cache = await caches.open(CACHE_NAME);
+    //         console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
+    //         await cache.put(e.request, response.clone());
+    //         return response;
+    //     })(),
+    // );
 });
 
