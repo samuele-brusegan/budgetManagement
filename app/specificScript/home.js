@@ -24,7 +24,7 @@ function updateBar() {
             }
         });
     // });
-    // console.log("total:", total, "totalIncome", totalIncome)
+    console.log("total:", total, "totalIncome", totalIncome)
     if(total !== 0) {
         let len = (totalIncome / total) * 100;
         document.querySelector(".progress-container").querySelector(".progress-fill").style.width = (len + '%');

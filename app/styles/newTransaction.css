@@ -1,65 +1,68 @@
 .first-form {
-            background: #353535;
-            padding: 15px;
-            border-radius: 1rem;
-            display: flex;
-            flex-direction: column;
-            /*width: 25%;*/
-        }
-        .first-form input {
-            border: none;
-            border-bottom: 1px solid #656565;
-            background: inherit;
-        }
+    background: #353535;
+    padding: 15px;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    /*width: 25%;*/
+}
+.first-form input {
+    border: none;
+    border-bottom: 1px solid #656565;
+    background: inherit;
+    height: 35px;
+    outline: none;
+}
 
-    /* TODO: Fallo in relazione alla classe sup.*/
-        .transaction-dropdown {
-            border: none;
-            background: inherit;
-        }
-        .transaction-dropdown option{
-            border: none;
-            background-color: #353535;
-        }
+/* TODO: Fallo in relazione alla classe sup.*/
+.transaction-dropdown {
+    border: none;
+    background: inherit;
+}
+.transaction-dropdown option{
+    border: none;
+    background-color: #353535;
+}
 
-        .radio-group>input[type=radio] { /*Nascondo i pallini*/
-            position: absolute;
-            visibility: hidden;
-            display: none;
-        }
-        .radio-group>label {
-            width: 50%;
-            text-align: center;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-            padding: 5px 20px;
-        }
-        .radio-group> input[type=radio]:checked + label[for="option-one"]{
-            color: white;
-            background: #888;
-            border-radius: 0.75rem 0 0 0.75rem;
-        }
-        .radio-group> input[type=radio]:checked + label[for="option-two"]{
-            color: white;
-            background: #888;
-            border-radius: 0 0.75rem 0.75rem 0;
-        }
-        .radio-group> label + input[type=radio] + label {
-            border-left: solid 3px #888;
-        }
-        .radio-group {
-            border: solid 3px #888;
-            border-radius: 1rem;
-        }
-        .aliquota-input {
-            border: none;
-            /*border-bottom: 1px solid #656565;*/
-            background: inherit;
-            text-align: right;
-            
-        }
-        .aliquota-input:focus{
-            /*border: 1px solid white;*/
-            outline: none;
-        }
+.radio-group>input[type=radio] { /*Nascondo i pallini*/
+    position: absolute;
+    visibility: hidden;
+    display: none;
+}
+.radio-group>label {
+    width: 50%;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px 20px;
+}
+.radio-group> input[type=radio]:checked + label[for="option-one"]{
+    color: white;
+    background: #888;
+    border-radius: 0.75rem 0 0 0.75rem;
+}
+.radio-group> input[type=radio]:checked + label[for="option-two"]{
+    color: white;
+    background: #888;
+    border-radius: 0 0.75rem 0.75rem 0;
+}
+.radio-group> label + input[type=radio] + label {
+    border-left: solid 3px #888;
+}
+.radio-group {
+    border: solid 3px #888;
+    border-radius: 1rem;
+}
+
+.aliquota-input {
+    border: none;
+    /*border-bottom: 1px solid #656565;*/
+    background: inherit;
+    text-align: right;
+
+}
+.aliquota-input:focus{
+    /*border: 1px solid white;*/
+    outline: none;
+}

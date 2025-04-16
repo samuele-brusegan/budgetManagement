@@ -19,13 +19,26 @@ export function save(){
     //Importing Objects
     localStorage.setItem(fileName+"_accountList", jsonStringAccList);
     localStorage.setItem(fileName+"_categories",  JSON.stringify(Category.categoryList));
+    
 }
 /**
  * Funzione per caricare i dati dalla memoria locale.
  */
 export function load(){
+    let categoriesJSON = localStorage.getItem(fileName+"_categories")
+    console.log(localStorage)
     loadAccount()
-    Category.categoryList = JSON.parse(localStorage.getItem(fileName+"_categories"));
+    loadCategory(categoriesJSON)
+}
+function loadCategory(categoriesJSON){
+    console.log("Loading categories")
+    if(categoriesJSON !== "{}") {
+        let categoryListJSON = JSON.parse(categoriesJSON);
+        categoryListJSON?.forEach((elem) => {
+            let newCaregory = new Category(elem._name, elem._description, elem?._parentCategoryID);
+        });
+    }
+    console.log(Category.categoryList)
 }
 function loadAccount() {
     if(localStorage.getItem(fileName+"_accountList") !== "{}") {
@@ -56,4 +69,5 @@ export function warn_deleteAll(){
     console.log("DELETED!")
     localStorage.setItem(fileName+"_accountList", "{}");
     localStorage.setItem(fileName+"_categories",  "{}");
+    localStorage.setItem("isDefaultLoaded", "false");
 }

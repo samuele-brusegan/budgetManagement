@@ -79,11 +79,11 @@ export function convertJsonToObjects(jsonData) {
     
     const convertedAccounts = [];
     const convertedCategories = [];
-    
     // Convert categories
     if (parsedData.categories) {
         parsedData.categories.forEach((categoryData) => {
             const newCategory = new Category(categoryData._name, categoryData._type);
+            console.log(Category.categoryList)
             convertedCategories.push(newCategory);
         });
     }

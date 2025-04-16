@@ -4,14 +4,14 @@ export class Item {
     static objCounter = 0;
     
     constructor(name, quantity=0, tag=null, descr=""){
-        console.log(name, quantity, tag, descr)
+        // console.log(name, quantity, tag, descr)
         this._name = name;
         this._quantity = quantity; 
         this._tag = tag;
         this._description = descr;
         this._id = Item.objCounter;
         Item.objCounter++;
-        console.log(this)
+        // console.log(this)
     }
     
     quantityAdd(value=1){

@@ -55,7 +55,8 @@ export class Conto {
     
     addManyTransactions(transactions){
         transactions.forEach((transaction) => {
-            this._transactionList.push(new Transaction(transaction._value, transaction._category, transaction._date, transaction._name))
+            // this._transactionList.push(new Transaction(transaction._value, transaction._category, transaction._date, transaction._name))
+            this._transactionList.push(new Transaction(transaction._name, transaction._value, transaction._category, transaction._date))
         });
         Memory.save(); // Salva i dati nella memoria persistente
     }

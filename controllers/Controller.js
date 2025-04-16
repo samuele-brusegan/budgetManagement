@@ -14,12 +14,16 @@ initMemory() // Inizializza la memoria
 
 /**
  * Crea una nuova transazione e la aggiunge al conto corrente.
+ * @param {string} name - Il nome della transazione.
  * @param {number} value - Il valore della transazione.
  * @param {string} type - Il tipo della transazione.
  * @param {string} date - La data della transazione.
+ * @param {string} hour - L'ora della transazione.
+ * @param {string} descr - La descrizione della transazione.
+ * @param {string} status - Lo stato della transazione.
  */
-export function createTransaction(value, type, date) {
-    let transaction = new Transaction(value, type, date); // Crea una nuova transazione
+export function createTransaction(name, value, category, date, hour, descr, status, type) {
+    let transaction = new Transaction(name, value, category, date, hour, descr, status, type); // Crea una nuova transazione
     currentAccount.addTransaction(transaction); // Aggiunge la transazione al conto corrente
 }
 
@@ -115,9 +119,8 @@ export function delData() {
  * Carica i dati da un file JSON e li aggiunge a una lista.
  * @param {string} path - Il percorso del file JSON.
  * @param {Array} list - La lista a cui aggiungere i dati.
- * @param {class} Class - La classe degli oggetti da creare.
  */
-function loadFromJSON(path, list, Class) {
+function loadFromCateg(path, list) {
     console.log("Loading from JSON")
     fetch(path) // Usa il percorso relativo al file JSON
         .then(response => {
@@ -127,14 +130,11 @@ function loadFromJSON(path, list, Class) {
             return response.json(); // Converte la risposta in JSON
         })
         .then(data => {
-            // Qui puoi usare i dati del JSON
-            // Per ogni oggetto nel JSON
             data.forEach((obj) => {
-                //TODO: Aggiungi in ogni classe una lista degli parametri costruttore, qui chiama obj[Class.params[0]]
-                let newObj = new Class(obj.name, obj.description, obj["parentCategoryID"]); // Crea un nuovo oggetto della classe specificata
-                list.push(newObj) // Aggiunge l'oggetto alla lista
+                let newObj = new Category(obj.name, obj.description, obj._parentCategoryID); // Crea un nuovo oggetto della classe specificata
+                // list.push(newObj) // Aggiunge l'oggetto alla lista
             });
-            saveData() // Salva i dati nella memoria persistente
+            //saveData() // Salva i dati nella memoria persistente
         })
         .catch(error => {
             console.error('Errore durante il caricamento del file JSON:', error);
@@ -145,7 +145,11 @@ function loadFromJSON(path, list, Class) {
  * Inizializza la memoria caricando i dati dai file JSON.
  */
 function initMemory() {
-    loadFromJSON("../models/defaultData/categories.json", Category.categoryList, Category);
-    loadFromJSON("../models/defaultData/payOptions.json", PaymentOptions.optionList, PaymentOptions);
     loadData()
+    //le istruzioni qui sotto appendono le categorie di default alla lista di categorie
+    if(localStorage.getItem("isDefaultLoaded") !== "true"){
+        localStorage.setItem("isDefaultLoaded", "true");
+        loadFromCateg("../models/defaultData/categories.json", Category.categoryList);
+        // loadFromPayOp("../models/defaultData/payOptions.json", PaymentOptions.optionList);
+    }
 }
