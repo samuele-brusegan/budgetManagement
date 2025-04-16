@@ -1,5 +1,4 @@
 import * as Ctrl from "../../controllers/Controller.js";
-//import {Chart} from "../../node_modules/chart.js/auto/auto.js"
 
 let pieChart;
 

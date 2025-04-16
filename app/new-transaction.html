@@ -10,78 +10,15 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <link rel="manifest" href="../manifest.json" />
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles/newTransaction.css">
         <link rel="icon" href="../favicon.ico">
     </head>
-    <style>
-        .first-form {
-            background: #353535;
-            padding: 15px;
-            border-radius: 1rem;
-            display: flex;
-            flex-direction: column;
-            /*width: 25%;*/
-        }
-        .first-form input {
-            border: none;
-            border-bottom: 1px solid #656565;
-            background: inherit;
-        }
-
-    /* TODO: Fallo in relazione alla classe sup.*/
-        .transaction-dropdown {
-            border: none;
-            background: inherit;
-        }
-        .transaction-dropdown option{
-            border: none;
-            background-color: #353535;
-        }
-
-        .radio-group>input[type=radio] { /*Nascondo i pallini*/
-            position: absolute;
-            visibility: hidden;
-            display: none;
-        }
-        .radio-group>label {
-            width: 50%;
-            text-align: center;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-            padding: 5px 20px;
-        }
-        .radio-group> input[type=radio]:checked + label[for="option-one"]{
-            color: white;
-            background: #888;
-            border-radius: 0.75rem 0 0 0.75rem;
-        }
-        .radio-group> input[type=radio]:checked + label[for="option-two"]{
-            color: white;
-            background: #888;
-            border-radius: 0 0.75rem 0.75rem 0;
-        }
-        .radio-group> label + input[type=radio] + label {
-            border-left: solid 3px #888;
-        }
-        .radio-group {
-            border: solid 3px #888;
-            border-radius: 1rem;
-        }
-        .aliquota-input {
-            border: none;
-            /*border-bottom: 1px solid #656565;*/
-            background: inherit;
-            text-align: right;
-            width: 50%;
-        }
-        .aliquota-input:focus{
-            /*border: 1px solid white;*/
-            outline: none;
-        }
-    </style>
     <body data-bs-theme="dark">
         <div class="col-11 m-auto">
-            <h1>Nuova Transazione</h1>
+            <div class="d-flex justify-content-start">
+                <div id="backFromNewTr"><img src="../assets/icons/back.svg" alt="back" style="heigth: 20px; width: 20px; filter: invert(1); margin: 7px"></div>
+                <h1>Nuova Transazione</h1>    
+            </div>
 
             <!-- Dove puoi inserire i dati principali -->
             <div class="first-form">
@@ -137,8 +74,9 @@
                     <input type="radio" id="option-one" name="selector" checked><label for="option-one">Incluso</label>
                     <input type="radio" id="option-two" name="selector"><label for="option-two">Escluso</label>
                 </div>
-                <div class="mt-2">
-                    Aliquota fiscale<input class="aliquota-input" id="aliquota" type="number" placeholder="0,00"/> %
+                <div class="mt-2 d-flex justify-content-between">
+                    <div>Aliquota fiscale</div>
+                    <div><input class="aliquota-input" id="aliquota" type="number" placeholder="0,00"/> %</div>
                 </div>
             </div>
             <h2>data</h2>
@@ -162,5 +100,6 @@
         </div>
     </body>
     <script src="../view/navbar.js"></script>
-    <script src="../app.js" type="text/javascript"></script>
+    <script src="specificScript/newTransaction.js" type="module"></script>
+    <!--script src="../app.js" type="text/javascript"></script-->
 </html>
