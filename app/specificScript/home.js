@@ -1,4 +1,5 @@
 import * as Ctrl from "../../controllers/Controller.js";
+import {getCategoryList} from "../../controllers/Controller.js";
 
 let pieChart;
 
@@ -13,18 +14,26 @@ function updateBar() {
     
     let totalIncome = 0;
     let total = 0;
+    let totalExpense = 0;
     // accList.forEach((account, i) => {
         // console.log("Transactions:", account.transactions);
         currAcc.transactions?.forEach((transaction) => {
             // console.log(transaction._value)
             let transactionValue = transaction._value;
-            total += Math.abs(transactionValue);
+            if(transactionValue < 0) {
+                totalExpense += Math.abs(transactionValue);
+            }
             if(transactionValue > 0){
                 totalIncome += transactionValue;
             }
         });
     // });
+    total = totalIncome+totalExpense;
+    
     console.log("total:", total, "totalIncome", totalIncome)
+    document.getElementById("numberRecupTotal").innerText = "$ "+(totalIncome-totalExpense);
+    document.getElementById("numberRecupIncome").innerText = "$ "+totalIncome;
+    document.getElementById("numberRecupExpense").innerText = "$ "+totalExpense;
     if(total !== 0) {
         let len = (totalIncome / total) * 100;
         document.querySelector(".progress-container").querySelector(".progress-fill").style.width = (len + '%');
@@ -50,6 +59,7 @@ function updatePieChart() {
     try {
         if(transactions.length === 0) throw "Nessuna transazione"
         transactions.forEach((transaction) => {
+            //Se è una spesa
             if (transaction._value < 0) {
                 if (!categoryNames.includes(transaction._category)) {
                     categoryNames.push(transaction._category);
@@ -96,6 +106,13 @@ function updatePieChart() {
         };
         
         pieChart = new Chart(ctx, config);
+        
+        let categoryList = document.getElementById("categoryList");
+        categoryList.innerHTML = "";
+        categoryNames.forEach((categoryName) => {
+           categoryList.innerHTML += `<div>${categoryName}</div>`
+        });
+        
     } catch (e) {
         document.querySelector(".chart-container").innerText = e;
     }

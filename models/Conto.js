@@ -53,6 +53,18 @@ export class Conto {
         Memory.save(); // Salva i dati nella memoria persistente
     }
     
+    remTransactionById(id){
+        id = parseInt(id);
+        this._transactionList.forEach((trans, i) => {
+            console.log(trans.id, id)
+            if(trans.id === id) {
+                console.log("Rm ", trans)
+                this._transactionList.splice(i, 1);
+            }
+        });
+        Memory.save();
+    }
+    
     addManyTransactions(transactions){
         transactions.forEach((transaction) => {
             // this._transactionList.push(new Transaction(transaction._value, transaction._category, transaction._date, transaction._name))

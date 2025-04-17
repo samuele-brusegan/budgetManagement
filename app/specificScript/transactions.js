@@ -10,31 +10,48 @@ export function showTransactions(){
         let traList = document.getElementById("transactions-list");
         traList.innerHTML = "";
         transactions.forEach((transaction, i) => {
-            let transactionCard = document.createElement("div");
-            transactionCard.className = "transaction-card " + (transaction._value < 0 ? "expense" : "income");
-            let innerDiv = document.createElement("div");
-            
-            let title = document.createElement("h3");
-            title.className = "transaction-title";
-            title.innerText = transaction.name;
-            
-            let subtitle = document.createElement("p");
-            subtitle.className = "transaction-subtitle";
-            subtitle.innerText = transaction.category;
-            
-            innerDiv.appendChild(title);
-            innerDiv.appendChild(subtitle);
-            
-            let amount = document.createElement("span");
-            amount.className = "transaction-amount";
-            amount.innerText = transaction.value;
-            transactionCard.appendChild(innerDiv);
-            transactionCard.appendChild(amount);
-            traList.appendChild(transactionCard);
-            // console.log(transactions.length)
+            // traList.innerHTML += `
+            // <div class="transaction-card ${(transaction._value < 0 ? "expense" : "income")}">
+            //     <div>
+            //         <h3 class="transaction-title">${transaction.name}</h3>
+            //         <p class="transaction-subtitle">${transaction.category}</p>
+            //     </div>
+            //     <span class="transaction-amount">${transaction.value}</span>
+            // </div>`;
+            traList.innerHTML += `
+            <div class="swiper w-100 transaction-card ${(transaction._value < 0 ? "expense" : "income")}" style="padding: 12px;">
+                <div class="swiper-wrapper d-flex">
+                    <div class="swiper-slide transaction-card">
+                        <div>
+                            <h3 class="transaction-title">${transaction.name}</h3>
+                            <p class="transaction-subtitle">${transaction.category}</p>
+                        </div>
+                        <span class="transaction-amount">${transaction.value}</span>
+                    </div>
+                    <div class="swiper-slide h-auto" style="position: relative;">
+                        <div class="delete-btn-mask"></div>
+                        <div class="delete-btn d-flex justify-content-center align-items-center" uid="${transaction.id}">Elimina</div>
+                    </div>
+                </div>
+            </div>`;
+        });
+        document.querySelectorAll(".delete-btn").forEach(button => {
+            button.addEventListener("click", () => {
+                let uid = button.getAttribute("uid")
+                //Get transaction
+                Ctrl.getCurrAccount().remTransactionById(uid)
+                showTransactions()
+            });
         });
         traList.style.marginBottom = "10vh"
     }
+    let swiper = new Swiper(".swiper", {
+        slidesPerView: "auto",
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
 }
 
 let addBtn = document.getElementById("addBtn");

@@ -8,7 +8,7 @@ const data = [
     {"page":"inventory", "alt":"Inventory", "title":"Inventory", "img":"<img src='../assets/icons/boxes.svg' style='width: 30px; height: 30px;' alt=''/>"}
 ];
 const lowerNavbar = document.getElementById("lowerNavbar")
-lowerNavbar.innerHTML = "<nav class='bottom-nav'></nav>"
+lowerNavbar.innerHTML = "<div style='height: 5.25rem;'></div><nav class='bottom-nav'></nav>"
 const nav = document.querySelector(".bottom-nav")
 
 data.forEach((item) => {
