@@ -26,10 +26,8 @@ export function save(){
  */
 export function load(){
     let categoriesJSON = localStorage.getItem(fileName+"_categories")
-    console.log(localStorage)
     loadAccount()
     loadCategory(categoriesJSON)
-    console.log(localStorage)
 }
 function loadCategory(categoriesJSON){
     console.log("Loading categories")
@@ -39,7 +37,7 @@ function loadCategory(categoriesJSON){
             let newCaregory = new Category(elem._name, elem._description, elem?._parentCategoryID);
         });
     }
-    console.log(Category.categoryList)
+    // console.log(Category.categoryList)
 }
 function loadAccount() {
     if(localStorage.getItem(fileName+"_accountList") !== "{}") {

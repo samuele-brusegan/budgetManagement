@@ -15,13 +15,21 @@
     </head>
     <body data-bs-theme="dark">
         <!-- Home Page Content -->
-        <div id="topbar"></div>
         <div id="inventory-page" class="col-md-11 app">
+            <div id="topbar"></div>
+            <div class="topbar-separator"></div>
 
             <div class="products-list" id="products-list"></div>
 
+            <div id="addBtn" class="add-btn" onclick="navigateTo('modify-element')">
+                <img src="../assets/icons/add.svg" alt="add">
+            </div>
+
             <div id="lowerNavbar"/>
         </div>
+        <script src="../navigator.js"></script>
+        <script src="../header.js"></script>
+
         <script src="../view/navbar.js"></script>
         <script src="../view/topbar.js"></script>
         <script src="specificScript/inventory.js" type="module"></script>

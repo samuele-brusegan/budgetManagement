@@ -57,3 +57,24 @@ body {
 .quantity-btn:hover:last-child{
     border-radius: 0 0 1rem 0;
 }
+
+.add-btn {
+    display: grid;
+    position: fixed;
+    bottom: 5.25rem;
+    right: 15px;
+
+    background: var(--foreground);
+    height: 4rem;
+    width: 4rem;
+    border-radius: 4rem;
+    font-size: 3.25rem;
+    place-items: center;
+
+    z-index: 256;
+
+    transition: rotate 1s;
+}
+.add-btn img {
+    filter: invert(var(--invertBoolWhite));
+}

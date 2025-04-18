@@ -1,5 +1,4 @@
 import * as Ctrl from "../../controllers/Controller.js";
-import {getCategoryList} from "../../controllers/Controller.js";
 
 let pieChart;
 
@@ -8,26 +7,23 @@ updateBar()
 updatePieChart()
 
 function updateBar() {
-    let accList = Ctrl.getAccountList()
+//    let accList = Ctrl.getAccountList()
     let currAcc = Ctrl.getCurrAccount()
-    // accList.forEach((val) => {console.log(val)});
     
     let totalIncome = 0;
     let total = 0;
     let totalExpense = 0;
-    // accList.forEach((account, i) => {
-        // console.log("Transactions:", account.transactions);
-        currAcc.transactions?.forEach((transaction) => {
-            // console.log(transaction._value)
-            let transactionValue = transaction._value;
-            if(transactionValue < 0) {
-                totalExpense += Math.abs(transactionValue);
-            }
-            if(transactionValue > 0){
-                totalIncome += transactionValue;
-            }
-        });
-    // });
+    
+    currAcc.transactions?.forEach((transaction) => {
+        let transactionValue = transaction._value;
+        if(transactionValue < 0) {
+            totalExpense += Math.abs(transactionValue);
+        }
+        if(transactionValue > 0){
+            totalIncome += transactionValue;
+        }
+    });
+    
     total = totalIncome+totalExpense;
     
     console.log("total:", total, "totalIncome", totalIncome)
@@ -70,7 +66,6 @@ function updatePieChart() {
                 }
             }
         });
-        // console.log(categoryNames, transactionsValueByCategory)
         if (transactionsValueByCategory.length === 0) throw "Nessuna transazione in uscita"
         
         let colors = [pieColors[0]];
@@ -114,6 +109,7 @@ function updatePieChart() {
         });
         
     } catch (e) {
+        console.log(e)
         document.querySelector(".chart-container").innerText = e;
     }
 }

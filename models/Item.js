@@ -22,7 +22,13 @@ export class Item {
         this.quantityAdd(-value);
         save()
     }
-    
+    modify(name, quantity, tag, descr){
+        this.name = name;
+        this.quantity = quantity;
+        this.tag = tag;
+        this.description = descr;
+        save()
+    }
     
     
     

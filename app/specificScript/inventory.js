@@ -1,5 +1,5 @@
+// noinspection EqualityComparisonWithCoercionJS
 // /app/spScript/inv.js
-
 import {Item} from "../../models/Item.js"
 import * as Ctrl from "../../controllers/Controller.js"
 
@@ -11,25 +11,6 @@ showProductList()
 function showProductList(){
     list.innerHTML = "";
     products.forEach(product => {
-        // list.innerHTML +=
-        // `<div class="product-card">
-        //     <!-- Image and Description -->
-        //     <div class="d-flex align-items-center justify-content-start">
-        //         <img src="../assets/placeholder.svg" class="product-image" alt="placeholder">
-        //         <div>
-        //             <h3 class="product-title">${product.name}</h3>
-        //             <p class="product-subtitle">${product.description}</p>
-        //         </div>
-        //     </div>
-        //     <!-- Quantity Counter -->
-        //     <div class="quantity-container">
-        //         <div class="quantity-counter">${product.quantity}</div>
-        //         <div class="quantity-btn-container">
-        //             <div class="quantity-btn">+</div>
-        //             <div class="quantity-btn">-</div>
-        //         </div>
-        //     </div>
-        // </div>`;
         let prodCard = document.createElement("div");
         prodCard.classList.add("product-card");
         prodCard.innerHTML =
@@ -71,5 +52,16 @@ function showProductList(){
             product.quantityRem()
             showProductList()
         });
+        prodCard.addEventListener("click", function () {
+            setCookie("prodId", product.id, 0.25);
+            router.navigateTo("modify-element")
+        });
     });
+}
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }

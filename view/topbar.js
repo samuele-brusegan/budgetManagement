@@ -1,6 +1,6 @@
 // const pageName = window.location.href.split("/")[window.location.href.split("/").length - 1].split(".")[0]
 const topbar = document.getElementById("topbar")
-topbar.className = "topbar-div d-flex justify-content-between align-items-center"
+topbar.className = "topbar-div justify-content-between"
 let title = document.createElement("h1");
 title.className = "page-title";
 title.innerText = pageName;

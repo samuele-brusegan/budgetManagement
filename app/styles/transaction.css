@@ -118,7 +118,7 @@ div.swiper-slide.h-auto{
     bottom: 5.25rem;
     right: 15px;
 
-    background: #2196F3;
+    background: var(--foreground);
     height: 4rem;
     width: 4rem;
     border-radius: 4rem;
@@ -128,4 +128,7 @@ div.swiper-slide.h-auto{
     z-index: 256;
 
     transition: rotate 1s;
+}
+.add-btn img {
+    filter: invert(var(--invertBoolWhite));
 }

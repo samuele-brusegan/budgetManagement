@@ -33,3 +33,7 @@ function navigateTo(pageId) {
     let documentPath = pageIds[pageId];
     window.location.href = CURR_BASE_DIR+documentPath;
 }
+
+const router = {
+    navigateTo: navigateTo,
+}
