@@ -29,6 +29,7 @@ export function load(){
     console.log(localStorage)
     loadAccount()
     loadCategory(categoriesJSON)
+    console.log(localStorage)
 }
 function loadCategory(categoriesJSON){
     console.log("Loading categories")
@@ -70,4 +71,14 @@ export function warn_deleteAll(){
     localStorage.setItem(fileName+"_accountList", "{}");
     localStorage.setItem(fileName+"_categories",  "{}");
     localStorage.setItem("isDefaultLoaded", "false");
+    
+    Conto.accountList = [];
+    Conto.accountCounter = 0;
+    
+    Category.categoryList = [];
+    Category.categoryCounter = 0;
+    
+    Transaction.transactionList = [];
+    Transaction.transactionCounter = 0;
+    Object.objCounter = 0;
 }

@@ -13,10 +13,37 @@
     </head>
     <body data-bs-theme="dark">
         <!-- Settings Page -->
-        <div class="app col-md-11 m-auto">
+        <div class="app col-11 m-auto">
             <h1 class="page-title">impostazioni</h1>
 
             <div class="settings-list">
+                <div style="height: 25vh; width: 100%; background: #222; padding: 15px; border-radius: 2rem; margin-bottom: 15px;">
+                    <div style="border-radius: 2rem; height: 4rem; background: var(--card-bg); width: 100%;">
+                        <img src="../assets/placeholder.svg" alt="FotoProfilo" style="border-radius: 2rem; height: 4rem; width: 4rem; margin-right: 15px;">
+                        nome Account
+                    </div>
+                    Informazioni su Account + info di tutti i conti
+                </div>
+                <div class="setting-item" x-data="{}" @click="window.location.href = 'sections/settings/general.html';">
+                    <span>Generali</span>
+                    <span class="chevron">›</span>
+                </div>
+                <div class="setting-item" onclick="navigateTo('sections/settings/developer-info')">
+                    <span>Informazioni</span>
+                    <span class="chevron">›</span>
+                </div>
+                <div id="contoList" class="settings-list">
+                    <div class="setting-item">
+                        <span>Conto 1</span>
+                        <span class="chevron">›</span>
+                    </div>
+                    <div class="setting-item">
+                        <span>Conto 2</span>
+                        <span class="chevron">›</span>
+                    </div>
+                </div>
+                <button class="btn" style="background: #939393; color: #000; width: 58%; height: 3.5rem; margin: auto; font-size: 20px;">Nuovo conto</button>
+                <!--
                 <div class="setting-item">
                     <span>Tema scuro</span>
                     <label class="switch">
@@ -60,7 +87,7 @@
                 <div class="setting-item" id="license" x-data @click="window.location.href = 'license.html';">
                     <span>Licence</span>
                     <span class="chevron">›</span>
-                </div>
+                </div>-->
             </div>
 
             <button class="secondary-btn">Ripristina</button>
