@@ -1,8 +1,11 @@
 // Check and register service worker, TODO: alla fine del progetto rimuovere il commento
-//
+
 // if ("serviceWorker" in navigator) {
 //     navigator.serviceWorker.register("../service-worker.js")
-//         .then(() => console.log("Service Worker registrato con successo"))
+//         .then(() => {
+//             console.log("Service Worker registrato con successo")
+//             console.log("Online: "+!sessionStorage.getItem("offline"))
+//         })
 //         .catch((error) => console.log("Errore nella registrazione del Service Worker:", error));
 // }
 

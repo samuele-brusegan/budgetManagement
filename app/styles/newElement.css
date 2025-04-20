@@ -1,0 +1,97 @@
+.quantity-container {
+    border-radius: 1rem;
+    padding: 0 0 15px 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: var(--foreground);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.quantity-counter {
+    outline: none;
+    border: none;
+    background: inherit;
+    border-radius: 1rem 1rem 0 0;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    height: 75%;
+    width: 100%;
+}
+.quantity-btn-container {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    height: 30%;
+    font-size: 2rem;
+}
+.quantity-btn{
+    width: 50%;
+    align-content: center;
+}
+.quantity-btn:hover{
+    background: var(--color4A);
+}
+.quantity-btn:hover:first-child{
+    border-radius: 0 0 0 1rem;
+}
+.quantity-btn:hover:last-child{
+    border-radius: 0 0 1rem 0;
+}
+
+.categoryList {
+    display: flex;
+    overflow: auto;
+    width: 85%;
+}
+.categoryItem {
+    font-size: 1.5rem;
+    background: var(--foreground);
+    color: var(--background);
+    border-radius: .5rem;
+    padding: 5px 25px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type = "text"] {
+    width: 100%;
+    outline: none;
+    border: none;
+    background: var(--card-bg);
+    border-radius: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.add-category-div {
+    position:absolute;
+    right: 0;
+    margin: 5px;
+    background: var(--foreground);
+    height: calc(100% - 10px);
+    aspect-ratio: 1/1;
+    border-radius: .5rem;
+    text-align: center;
+    align-content: center;
+}
+.done-btn {
+    width: 90%;
+    border-radius: 1.5rem;
+    height: 3rem;
+    background: var(--foreground);
+    color: var(--background);
+    text-align: center;
+    align-content: center;
+    margin: 2rem auto auto;
+    font-size: 1.7rem
+}

@@ -1,5 +1,6 @@
 import * as Ctrl from "../../controllers/Controller.js"
 import {Item} from "../../models/Item.js"
+import * as Cookie from "../../models/cookies.js"
 
 let newOrModify = "new";
 let qt = 0;
@@ -13,7 +14,7 @@ let descr = document.getElementById("descr");
 let done = document.querySelector(".done-btn");
 
 //Loading data
-let issuingId = getCookie("prodId")
+let issuingId = Cookie.get("prodId")
 console.log(issuingId, "issuingId")
 if(issuingId !== "-1"){
     Ctrl.getCurrAccount().inventory.forEach(prod => {
@@ -26,7 +27,7 @@ if(issuingId !== "-1"){
         }
     })
     newOrModify = "modify";
-    setCookie("prodId", "", 0);
+    Cookie.set("prodId", "", 0);
 }
 
 
@@ -54,28 +55,6 @@ done.addEventListener("click", () => {
             console.log(prod)
         })
     }
-    // navigateTo("inventory")
+    navigateTo("inventory")
 });
-
-function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "-1";
-}
-function setCookie(cname, cvalue, exdays) {
-    const d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    let expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
 
