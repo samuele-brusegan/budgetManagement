@@ -152,6 +152,13 @@ function createProductCard(product) {
 function showProductList() {
     let list = document.getElementById("products-list");
     list.innerHTML = "";
+    if (products.length === 0) {
+        let noProducts = document.createElement("div");
+        noProducts.classList.add("no-products");
+        noProducts.textContent = "Non ci sono prodotti";
+        list.appendChild(noProducts);
+        return;
+    }
     products.forEach(product => {
         console.log(product)
         let prodCard = createProductCard(product);

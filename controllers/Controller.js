@@ -16,6 +16,7 @@ initMemory() // Inizializza la memoria
  * Crea una nuova transazione e la aggiunge al conto corrente.
  * @param {string} name - Il nome della transazione.
  * @param {number} value - Il valore della transazione.
+ * @param category
  * @param {string} type - Il tipo della transazione.
  * @param {string} date - La data della transazione.
  * @param {string} hour - L'ora della transazione.
@@ -97,9 +98,14 @@ export function saveData(){
  */
 export function loadData(){
     Memory.load() // Carica i dati
-    if(sessionStorage.currentAccountID && sessionStorage.currentAccountID !== "-101"){
-        setCurrAccountById(sessionStorage.currentAccountID)
+    let currID = sessionStorage.getItem("currentAccountID");
+    
+    if(currID !== "undefined" && currID !== "-101"){
+        console.log("AAA")
+        console.log(currID)
+        setCurrAccountById(currID)
     } else {
+        console.log("BBB")
         // Imposta il conto corrente al primo conto della lista o al conto di default
         setCurrAccount(currentAccount ?? Conto.accountList[0] ?? nullAccount);
         sessionStorage.setItem("currentAccountID", currentAccount.id)

@@ -1,0 +1,26 @@
+<div class="category-item">
+    <input class="tgl tgl-skewed" id="cb3-8" type="checkbox"/>
+    <label class="tgl-btn" for="cb3-8">Category Name</label>
+</div>
+
+<style>
+    .category-item .tgl {
+        display: none;
+    }
+    .category-item .tgl + .tgl-btn {
+        outline: 0;
+        display: block;
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .category-item input.tgl + .tgl-btn {
+        background: #888;
+    }
+    .category-item input.tgl:checked + .tgl-btn {
+        background: #86d993;
+    }
+</style>

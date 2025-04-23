@@ -1,6 +1,7 @@
 import * as Ctrl from "../../controllers/debugCtrl.js";
-let pageHead = document.querySelector(".page-title");
-const headerBack = pageHead.innerHTML;
+let container = document.querySelector("#general-settings-page>div");
+let contHtml = container.innerHTML;
+
 isDevShow()
 function isDevShow() {
     console.log("!!!!")
@@ -8,10 +9,10 @@ function isDevShow() {
     console.log(dev)
     if(dev) {
         console.log("a")
-        pageHead.innerHTML = headerBack + " <a href='../debug/index.html'>!(You aren't a dev)</a>";
+        container.innerHTML =` <a class='btn btn-light' onclick="navigateTo('debug')">!(You aren't a dev)</a>${contHtml}`;
     } else {
         console.log("b")
-        pageHead.innerHTML = headerBack;
+        container.innerHTML = contHtml;
     }
 }
 
@@ -51,10 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 changeDev(dev);
                 dev = Ctrl.getDev(); // Evita allucinazioni non necessario
             }
-            if(clickCount < 2){
-                devInfoParagraph.textContent = 'Versione: 1.0.0';
-            } else {
-                devInfoParagraph.textContent = (7-clickCount)+' clicks to '+(dev?'disable':'enable')+' Developer mode';
+            if (clickCount >= 2) {
+                devInfoParagraph.textContent = "-B.P. " + (7 - clickCount) + ' clicks to ' + (dev ? 'disable' : 'enable') + ' Developer mode';
             }
         });
     }

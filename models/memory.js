@@ -79,4 +79,6 @@ export function warn_deleteAll(){
     Transaction.transactionList = [];
     Transaction.transactionCounter = 0;
     Object.objCounter = 0;
+    
+    sessionStorage.setItem("currentAccountID", undefined)
 }

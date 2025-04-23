@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html lang="it">
     <head>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="styles/transaction.css">
+        <link rel="stylesheet" href="styles/filters.css">
     </head>
     <body data-bs-theme="dark">
         <!-- Transactions Page -->
         <div class="app col-11 m-auto pb-3">
             <div id="topbar"></div>
-            <div class="topbar-separator"></div>
+            <div id="filterBar">
+                <div>
+                    <div class="filterItem">
+                        <div>filter1</div>
+                        <img src="../assets/icons/close.svg" alt="X">
+                    </div>
+                    <div class="filterItem">
+                        <div>filter2</div>
+                        <img src="../assets/icons/close.svg" alt="X">
+                    </div>
+                    <div class="filterItem">
+                        <div>Long Filter text with breakings</div>
+                        <img src="../assets/icons/close.svg" alt="X">
+                    </div>
+                    <div class="filterItem">
+                        <div>filter1</div>
+                        <img src="../assets/icons/close.svg" alt="X">
+                    </div>
+                    <div class="filterItem">
+                        <div>filter2</div>
+                        <img src="../assets/icons/close.svg" alt="X">
+                    </div>
+                    <div class="filterItem">
+                        <div>Long Filter text with breakings</div>
+                        <img src="../assets/icons/close.svg" alt="X">
+                    </div>
+                </div>
+                <div class="filter" onclick="navigateTo('trnFilter')"><img src="../assets/icons/filter.svg" alt="Filter"></div>
+            </div>
+            <div class="topbar-separator" style="height: calc(10vh + 4rem); margin: .5rem;"></div>
 
 <!--            <h1 class="page-title">Transazioni</h1>-->
 

@@ -1,5 +1,5 @@
 {
-	"name": "StockFlow - Gestione Spese",
+	"name": "StockFlow",
 	"short_name": "StockFlow",
 	"start_url": "app/index.html",
 	"display": "standalone",

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <!--suppress CheckEmptyScriptTag -->
 <html lang="it">
-    <head></head>
+    <head>
+        <meta charset="UTF-8">
+    </head>
     <body data-bs-theme="dark">
 
         <div id="home-page" class="col-11 app">
@@ -9,80 +11,75 @@
             <div id="topbar"></div>
             <div class="topbar-separator"></div>
 
-            <!-- Notifiche -->
-            <div class="my-card">
-                <div class="d-flex flex-column justify-content-start">
-                    <h5>Mettere qui le notifiche</h5>
-                    <div>Notifica 1</div>
-                    <div>Notifica 2</div>
+            <div id="content">
+                <!-- Notifiche -->
+                <div class="my-card">
+                    <div class="d-flex flex-column justify-content-start">
+                        <h5>Mettere qui le notifiche</h5>
+                        <div>Notifica 1</div>
+                        <div>Notifica 2</div>
+                    </div>
                 </div>
-            </div>
-            <!-- Recup -->
-            <div class="my-card d-flex flex-column flex-md-row justify-content-md-between">
-                <div class="number-recup-item">
-                    <div class="d-flex justify-content-start align-items-center">
-                        <img src="../assets/placeholder.svg" alt="Total" height="32" width="32">
-                        <div class="ms-2" style="color: #FA0;"><b>Totale</b></div>
+                <!-- Recup -->
+                <div class="my-card d-flex flex-column flex-md-row justify-content-md-between">
+                    <div class="number-recup-item">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <img src="../assets/placeholder.svg" alt="Total" height="32" width="32">
+                            <div class="ms-2" style="color: #FA0;"><b>Totale</b></div>
+                        </div>
+                        <div>
+                            <h2 id="numberRecupTotal">$ ---,--</h2>
+                        </div>
                     </div>
                     <div>
-                        <h2 id="numberRecupTotal">$ ---,--</h2>
-                    </div>
-                </div>
-                <div>
-                    <div class="d-flex justify-content-start align-items-center">
-                        <img src="../assets/placeholder.svg" alt="Total" height="32" width="32">
-                        <div class="ms-2" style="color: #0F0;"><b>Entrate</b></div>
-                    </div>
-                    <div>
-                        <h2 id="numberRecupIncome">$ ---,--</h2>
-                    </div>
-                </div>
-                <div>
-                    <div class="d-flex justify-content-start align-items-center">
-                        <img src="../assets/placeholder.svg" alt="Total" height="32" width="32">
-                        <div class="ms-2" style="color: #F00;"><b>Uscite</b></div>
+                        <div class="d-flex justify-content-start align-items-center">
+                            <img src="../assets/placeholder.svg" alt="Total" height="32" width="32">
+                            <div class="ms-2" style="color: #0F0;"><b>Entrate</b></div>
+                        </div>
+                        <div>
+                            <h2 id="numberRecupIncome">$ ---,--</h2>
+                        </div>
                     </div>
                     <div>
-                        <h2 id="numberRecupExpense">$ ---,--</h2>
+                        <div class="d-flex justify-content-start align-items-center">
+                            <img src="../assets/placeholder.svg" alt="Total" height="32" width="32">
+                            <div class="ms-2" style="color: #F00;"><b>Uscite</b></div>
+                        </div>
+                        <div>
+                            <h2 id="numberRecupExpense">$ ---,--</h2>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Chart -->
-            <div class="my-card">
-                <div class="d-flex justify-content-around align-items-center">
-                    <div class="chart-container d-flex p-2">
-                        <canvas id="pieChartHome"></canvas>
-                    </div>
-                    <div id="categoryList" style="overflow: auto;">
-                        <!-- <h3>Categorie</h3>-->
-                        <div>Categ 1</div>
-                        <div>Categ 2</div>
-                        <div>Categ 3</div>
-                        <div>Categ 4</div>
-                        <div>Categ 5</div>
-                        <div>Categ 6</div>
+                <!-- Chart -->
+                <div class="my-card">
+                    <div class="d-flex justify-content-around align-items-center">
+                        <div class="chart-container d-flex p-2">
+                            <canvas id="pieChartHome"></canvas>
+                        </div>
+                        <div id="categoryList" style="overflow: auto;"></div>
                     </div>
                 </div>
-            </div>
-            <!-- Progress Bar -->
-            <div class="my-card">
-                <div class="progress-container" x-data="{len: 0}">
-                    <div class="d-flex justify-content-between align-items-center" style="width: 96%; margin: auto;">
-                        <div>Entrate</div>
-                        <div>Uscite</div>
-                    </div>
+                <!-- Progress Bar -->
+                <div class="my-card">
+                    <div class="progress-container" x-data="{len: 0}">
+                        <div class="d-flex justify-content-between align-items-center" style="width: 96%; margin: auto;">
+                            <div>Entrate</div>
+                            <div>Uscite</div>
+                        </div>
 
-                    <div class="progress-bar" style="width: 96%; margin: auto; height: 30px; border-radius: .5rem;">
-                        <div class="progress-fill" :style="{width: len + '%'}" style="border-radius: .5rem"></div>
-                    </div>
+                        <div class="progress-bar" style="width: 96%; margin: auto; height: 30px; border-radius: .5rem;">
+                            <div class="progress-fill" :style="{width: len + '%'}" style="border-radius: .5rem"></div>
+                        </div>
 
-                    <div class="progress-labels">
-                        <span>0%</span>
-                        <div style="width: 100%;"><div id="progress-number" style="text-align: end"></div></div>
-                        <span>100%</span>
+                        <div class="progress-labels">
+                            <span>0%</span>
+                            <div style="width: 100%;"><div id="progress-number" style="text-align: end"></div></div>
+                            <span>100%</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div id="lowerNavbar"/>
         </div>
         <script src="../navigator.js"></script>

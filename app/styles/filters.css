@@ -1,0 +1,53 @@
+/* Filter bar */
+#filterBar{
+    position: fixed;
+    left: 0;
+    top: calc(10vh - 1rem);
+    background: var(--secondary-bg-variant);
+    height: 5rem;
+    width: 100%;
+    z-index: 2;
+    padding: 2rem 15px 15px 15px;
+    border-radius: 0 0 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#filterBar > div {
+    display: flex;
+    align-items: center;
+    overflow: auto;
+}
+.filterItem{
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    background: var(--colorD3);
+    margin: 5px;
+    border-radius: 10px;
+    padding: 7px;
+    color: var(--background);
+}
+.filterItem > div {
+    white-space: nowrap;
+}
+.filterItem > img {
+    height: 1rem;
+    width: 1rem;
+    filter: invert(var(--invertBoolWhite))
+}
+.filter {
+    height: calc(1rem + 14px);
+    min-width: calc(1rem + 14px);
+    background: var(--colorAF);
+    padding: 7px;
+    margin-left: 5px;
+    border-radius: 10px;
+}
+.filter > img {
+    height: 1rem;
+    width: 1rem;
+    filter: invert(var(--invertBoolBlack));
+}
+
+/* --- */

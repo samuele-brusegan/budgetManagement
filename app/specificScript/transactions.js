@@ -9,19 +9,15 @@ export function showTransactions(){
         console.log("Showing transactions:", currentAccount, transactions)
         let traList = document.getElementById("transactions-list");
         traList.innerHTML = "";
+        if(transactions.length === 0) {
+            traList.innerHTML = "<div class='d-flex justify-content-center align-items-center' style='height: 70vh;'><h3>Non ci sono transazioni</h3></div>"
+            return;
+        }
         transactions.forEach((transaction, i) => {
-            // traList.innerHTML += `
-            // <div class="transaction-card ${(transaction._value < 0 ? "expense" : "income")}">
-            //     <div>
-            //         <h3 class="transaction-title">${transaction.name}</h3>
-            //         <p class="transaction-subtitle">${transaction.category}</p>
-            //     </div>
-            //     <span class="transaction-amount">${transaction.value}</span>
-            // </div>`;
             traList.innerHTML += `
-            <div class="swiper w-100 transaction-card ${(transaction._value < 0 ? "expense" : "income")}" style="padding: 12px;">
+            <div class="swiper w-100 transaction-card ${(transaction._value < 0 ? "expense" : "income")}" >
                 <div class="swiper-wrapper d-flex">
-                    <div class="swiper-slide transaction-card">
+                    <div class="swiper-slide transaction-card" style="padding: 12px;">
                         <div>
                             <h3 class="transaction-title">${transaction.name}</h3>
                             <p class="transaction-subtitle">${transaction.category}</p>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <style>
+        #group {
+            position: fixed;
+            bottom: 2.5vh;
+            width: 230px;
+            height: 60px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #bybytelab {
+            width: 155px;
+            height: 16px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 25px;
+            line-height: 16px;
+            letter-spacing: 1.7px;
+            white-space: nowrap;
+            color: #898989;
+        }
+
+        #innergroup {
+            width: 60px;
+            height: 60px;
+        }
+    </style>
+    <body data-bs-theme="dark" style="background-color: var(--primary-bg); overflow: hidden">
+        <div class="unselectable" style="position: fixed; top: 10px; right: 10px; border-radius: 1rem" id="installButton">Questo sito può essere installato!<br> Clicca qui per installare</div>
+        <div class="col-11 m-auto">
+            <div class="d-flex justify-content-center align-items-center flex-column" style="margin-top: 10vh;">
+                <img src="../../../assets/favicons/android-chrome-512x512.png" alt="Logo" style="height: 25vh; aspect-ratio: 1/1">
+                <div style="text-align: center; margin: 7vh 1rem 0 1rem; line-height: 3rem">
+                    <p style="font-size: 30px">
+                        <b>
+                            Ciao, <br>
+                            benvenuti su StockFlow
+                        </b>
+                    </p>
+                </div>
+                <div style="background: var(--foreground); width: 90%; color: var(--background);
+                    font-size: 2rem; border-radius: 2rem; display: flex; align-items: center; justify-content: center;
+                    font-weight: 700; position: fixed; bottom: 20vh;" onclick="navigateTo('privacyPolicy')"
+                >
+                    Continua
+                </div>
+                <div id="group">
+                    <div id="bybytelab"><sub>by</sub> ByteLab</div>
+                    <div id="innergroup"><img src="../../../assets/byteLab.svg" alt="" style="height: 100%; aspect-ratio: 1/1; filter: grayscale(1) contrast(0)"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="../../../navigator.js"></script>
+    <script src="../../../header.js"></script>
+    <script>
+        let deferredEvent;
+        let installButton = document.getElementById("installButton");
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // prevent the browser from displaying the default install dialog
+            e.preventDefault();
+
+            // Stash the event so it can be triggered later when the user clicks the button
+            deferredEvent = e;
+        });
+
+        installButton.addEventListener('click', () => {
+            // if the deferredEvent exists, call its prompt method to display the install dialog
+            if(deferredEvent) {
+                deferredEvent.prompt();
+            }
+        });
+    </script>
+    <script src="../../../navigator.js"></script>
+    <script src="../../../header.js"></script>
+<!--    <script src="../../../view/navbar.js"></script>-->
+    <script src="../../../app.js" type="text/javascript"></script>
+</html>
