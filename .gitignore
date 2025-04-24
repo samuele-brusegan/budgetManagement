@@ -1,2 +1,4 @@
 firebase.js
 .idea
+*.key
+domain.*

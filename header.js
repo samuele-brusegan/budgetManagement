@@ -12,6 +12,8 @@ let COMMON_HEAD_ELEMENTS = [
     //Sliders
     `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>`,
     `<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>`,
+    `<script src="//cdn.jsdelivr.net/npm/eruda"></script>`,
+    `<script>eruda.init();</script>`,
     
     `<link rel="manifest"   href="${CURR_BASE_DIR}manifest.json"/>`,
     `<link rel="stylesheet" href="${CURR_BASE_DIR}app/styles.css"/>`,
