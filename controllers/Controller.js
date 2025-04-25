@@ -73,7 +73,7 @@ export function setCurrAccountById(id){
     if (account !== undefined) {
         setCurrAccount(account);
     } else {
-        alert("Account not found!")
+        setCurrAccount(nullAccount);
     }
 }
 

@@ -6,6 +6,16 @@
     <body data-bs-theme="dark" style="background-color: var(--primary-bg)">
         <div class="col-11 m-auto overflow-hidden">
             <h1>newConto.html</h1>
+            <div class="d-flex flex-column w-50 m-auto">
+                <label for="name">Nome:</label>
+                <input type="text" id="name">
+                <label for="value">Valore iniziale: </label>
+                <input type="number" name="value" id="value">
+                <label for="currency">Valuta: </label>
+                <input type="text" name="currency" id="currency" placeholder="eg. €, $, £, ...">
+                <input type="submit" name="submit" id="submit" class="btn btn-light m-3">
+            </div>
+
             <a id="createNewDefaultAccount"  class="btn btn-light m-3">Crea nuovo conto di default</a>
             <a onclick="navigateTo('index')" class="btn btn-light m-3">Return to home</a>
         </div>
@@ -17,6 +27,13 @@
         import * as Ctrl from '../controllers/Controller.js';
         document.getElementById("createNewDefaultAccount").addEventListener("click", () => {
             Ctrl.addConto("Conto Default", 0, "€");
+            navigateTo("index")
+        })
+        document.getElementById("submit").addEventListener("click", () => {
+            let name     = document.getElementById("name").value;
+            let value    = document.getElementById("value").value;
+            let currency = document.getElementById("currency").value;
+            Ctrl.addConto(name, parseInt(value), currency)
             navigateTo("index")
         })
     </script>

@@ -63,9 +63,9 @@ if(Ctrl.getCurrAccount().id === -101) {
         total = totalIncome+totalExpense;
         
         console.log("total:", total, "totalIncome", totalIncome)
-        document.getElementById("numberRecupTotal").innerText = "$ "+(totalIncome-totalExpense);
-        document.getElementById("numberRecupIncome").innerText = "$ "+totalIncome;
-        document.getElementById("numberRecupExpense").innerText = "$ "+totalExpense;
+        document.getElementById("numberRecupTotal"  ).innerText = (currAcc.currency??"€")+" "+(totalIncome-totalExpense);
+        document.getElementById("numberRecupIncome" ).innerText = (currAcc.currency??"€")+" "+totalIncome;
+        document.getElementById("numberRecupExpense").innerText = (currAcc.currency??"€")+" "+totalExpense;
         if(total !== 0) {
             let len = (totalIncome / total) * 100;
             document.querySelector(".progress-container").querySelector(".progress-fill").style.width = (len + '%');
