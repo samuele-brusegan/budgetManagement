@@ -1,3 +1,4 @@
+import * as cookies from "models/cookies.js"
 // Check and register service worker, TODO: alla fine del progetto rimuovere il commento
 
 // if ("serviceWorker" in navigator) {
@@ -8,12 +9,15 @@
 //         })
 //         .catch((error) => console.log("Errore nella registrazione del Service Worker:", error));
 // }
+let isFirstTime = cookies.get("isFirstTime");
+//let isFirstTime = sessionStorage.getItem("isFirstTime");
 if(
-    sessionStorage.getItem("isFirstTime") === undefined ||
-    sessionStorage.getItem("isFirstTime") === null ||
-    sessionStorage.getItem("isFirstTime") === "true"
+    isFirstTime === undefined ||
+    isFirstTime === null ||
+    isFirstTime === "true"
 ){
-    sessionStorage.setItem("isFirstTime", "false");
+    cookies.set("isFirstTime", "false", 365)
+    //sessionStorage.setItem("isFirstTime", "false");
     window.location.href = CURR_BASE_DIR + "app/sections/firstLogin/index.html";
 }
 

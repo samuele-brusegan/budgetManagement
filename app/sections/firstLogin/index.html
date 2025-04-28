@@ -2,6 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
     </head>
     <style>
         #group {
@@ -32,7 +34,7 @@
         }
     </style>
     <body data-bs-theme="dark" style="background-color: var(--primary-bg); overflow: hidden">
-        <div class="unselectable" style="position: fixed; top: 10px; right: 10px; border-radius: 1rem" id="installButton">Questo sito può essere installato!<br> Clicca qui per installare</div>
+        <!--div class="unselectable" style="position: fixed; top: 10px; right: 10px; border-radius: 1rem" id="installButton">Questo sito può essere installato!<br> Clicca qui per installare</div-->
         <div class="col-11 m-auto">
             <div class="d-flex justify-content-center align-items-center flex-column" style="margin-top: 10vh;">
                 <img src="../../../assets/favicons/android-chrome-512x512.png" alt="Logo" style="height: 25vh; aspect-ratio: 1/1">
@@ -56,6 +58,12 @@
                 </div>
             </div>
         </div>
+        <div style="position: fixed; top: 0; right: 0; margin: 10px;">
+            <div class="alert alert-info alert-dismissible fade show" role="alert" id="installButton">
+                <b>Questo sito può essere installato!</b><hr> Clicca questa notifica per installare
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
     </body>
     <script src="../../../navigator.js"></script>
     <script src="../../../header.js"></script>
@@ -70,13 +78,15 @@
             // Stash the event so it can be triggered later when the user clicks the button
             deferredEvent = e;
         });
-
-        installButton.addEventListener('click', () => {
-            // if the deferredEvent exists, call its prompt method to display the install dialog
-            if(deferredEvent) {
-                deferredEvent.prompt();
-            }
-        });
+        if (window.matchMedia('(display-mode: standalone)').matches){
+            document.getElementById("")//se non pwa gen alert!
+            installButton.addEventListener('click', () => {
+                // if the deferredEvent exists, call its prompt method to display the install dialog
+                if(deferredEvent) {
+                    deferredEvent.prompt();
+                }
+            });
+        }
     </script>
     <script src="../../../navigator.js"></script>
     <script src="../../../header.js"></script>

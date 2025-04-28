@@ -1,6 +1,7 @@
 import {Conto} from "./Conto.js";
 import {Category} from "./Category.js";
 import {Transaction} from "./Transaction.js";
+import * as cookies from "./cookies.js"
 
 const fileName = "data"
 
@@ -81,4 +82,5 @@ export function warn_deleteAll(){
     Object.objCounter = 0;
     
     sessionStorage.setItem("currentAccountID", undefined)
+    cookies.set("isFirstTime", "false", 365)
 }
