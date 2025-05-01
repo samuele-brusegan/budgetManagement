@@ -58,18 +58,12 @@
                 </div>
             </div>
         </div>
-        <div style="position: fixed; top: 0; right: 0; margin: 10px;">
-            <div class="alert alert-info alert-dismissible fade show" role="alert" id="installButton">
-                <b>Questo sito può essere installato!</b><hr> Clicca questa notifica per installare
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        </div>
+        <div style="position: fixed; top: 0; right: 0; margin: 10px;" id="pwaAlert"></div>
     </body>
     <script src="../../../navigator.js"></script>
     <script src="../../../header.js"></script>
     <script>
         let deferredEvent;
-        let installButton = document.getElementById("installButton");
 
         window.addEventListener('beforeinstallprompt', (e) => {
             // prevent the browser from displaying the default install dialog
@@ -78,8 +72,14 @@
             // Stash the event so it can be triggered later when the user clicks the button
             deferredEvent = e;
         });
-        if (window.matchMedia('(display-mode: standalone)').matches){
-            document.getElementById("")//se non pwa gen alert!
+        if (!window.matchMedia('(display-mode: standalone)').matches){
+            document.getElementById("pwaAlert").innerHTML = `
+            <div class="alert alert-info alert-dismissible fade show" role="alert" id="installButton">
+                <b>Questo sito può essere installato!</b><hr> Clicca questa notifica per installare
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>`;
+            let installButton = document.getElementById("installButton");
+            //se non pwa gen alert!
             installButton.addEventListener('click', () => {
                 // if the deferredEvent exists, call its prompt method to display the install dialog
                 if(deferredEvent) {
