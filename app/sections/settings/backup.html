@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--suppress CheckEmptyScriptTag -->
+<html lang="it">
+    <head>
+        <link rel="stylesheet" href="styles/loader.css">
+    </head>
+    <body data-bs-theme="dark">
+
+        <div id="general-settings-page" class="app col-11 m-auto">
+            <!-- Topbar -->
+            <div class="topbar-div">
+                <img src="../../../assets/icons/back.svg" alt="Back" height="25" width="25" style="filter: invert(1); margin-right: 15px; cursor: pointer;" onclick="navigateTo('set/general')">
+                <h1 class="page-title m-0">Backup di sicurezza</h1>
+            </div>
+            <div class="topbar-separator"></div>
+
+            <div class="settings-list">
+                <div class="setting-item">
+                    <span>Backup Automatico</span>
+                    <div style="color: var(--colorA9)">
+                        Ogni 5 giorni
+                        <span class="chevron"><img src="../../../assets/icons/chevron.svg" alt="Chevron"></span>
+                    </div>
+                </div>
+
+                <div class="setting-item">
+                    <div>
+                        <img src="../../../assets/placeholder.svg" alt="Placeholder" height="25" width="25" style="filter: invert(var(--invertBoolWhite)); margin-right: 10px;">
+                        <span>Esegui Backup</span>
+                    </div>
+                    <div class="dotContainer">
+                        <!--.dot*8-->
+                        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                    </div>
+                </div>
+
+                <div class="setting-item">
+                    <span>Informazioni sul Backup</span>
+                    <span class="chevron"><img src="../../../assets/icons/chevron.svg" alt="Chevron"></span>
+                </div>
+        </div>
+        <script src="../../../navigator.js"></script>
+        <script src="../../../header.js"></script>
+
+        <script src="../../../app.js" type="module"></script>
+    </body>
+</html>

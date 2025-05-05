@@ -21,6 +21,7 @@ const pageIds = {
     "transaction":      "app/transaction.html",
     "trnFilter":        "app/transactionFilter.html",
     
+    "backup":           "app/sections/settings/backup.html",
     "set/devInfo":      "app/sections/settings/developer-info.html",
     "set/general":      "app/sections/settings/general.html",
     "set/info":         "app/sections/settings/info.html",
@@ -38,7 +39,7 @@ const pageIds = {
  * <b>PAGE IDS:</b>
  * <table>
  *     <tr>
- *         <td>feedback</td>
+ *         <td><b>feedback</b></td>
  *         <td>app/feedback.html</td>
  *     </tr>
  *     <tr>
@@ -69,6 +70,7 @@ const pageIds = {
  *         <td>trnFilter</td>
  *         <td>app/transactionFilter.html</td>
  *     </tr><tr>
+ *     </tr><tr>
  *         <td>set/devInfo</td>
  *         <td>app/sections/settings/developer-info.html</td>
  *     </tr><tr>
@@ -78,14 +80,17 @@ const pageIds = {
  *         <td>set/info</td>
  *         <td>app/sections/settings/info.html</td>
  *     </tr><tr>
+ *     </tr><tr>
  *         <td>privacyPolicy</td>
  *         <td>app/sections/firstLogin/privacy-policy.html</td>
  *     </tr><tr>
  *         <td>auth</td>
  *         <td>app/sections/firstLogin/auth.html</td>
  *     </tr><tr>
+ *     </tr><tr>
  *         <td>newConto</td>
  *         <td>app/newConto.html</td>
+ *     </tr><tr>
  *     </tr><tr>
  *         <td>debug</td>
  *         <td>app/debug/</td>

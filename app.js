@@ -1,4 +1,4 @@
-import * as cookies from "models/cookies.js"
+import * as cookies from "./models/cookies.js"
 // Check and register service worker, TODO: alla fine del progetto rimuovere il commento
 
 // if ("serviceWorker" in navigator) {

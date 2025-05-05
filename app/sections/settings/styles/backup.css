@@ -1,0 +1,193 @@
+@font-face {
+    font-family: "Alexandria";
+    src: url("../../../../assets/fonts/Alexandria.ttf");
+}
+#backupdisicurezza {
+    position: relative;
+    width: 402px;
+    height: 874px;
+    overflow: hidden;
+    background: #111111;
+}
+
+#rectangle3 {
+    position: absolute;
+    width: 402px;
+    height: 105px;
+    background: rgba(46,46,46,0.76);
+    backdrop-filter: blur(25px);
+}
+
+#back {
+    position: absolute;
+    left: 20px;
+    top: 35px;
+    width: 35px;
+    height: 35px;
+    background: url(../../../../assets/icons/back.svg);
+    filter: invert(var(--invertBoolBlack));
+    background-size: 35px 35px;
+}
+
+#backupdisicurezza {
+    position: absolute;
+    left: 65px;
+    top: 41px;
+    width: 279px;
+    height: 19px;
+    font-family: 'Alexandria';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 19px;
+    letter-spacing: 2.2px;
+    white-space: nowrap;
+    color: #ffffff;
+}
+
+#rectangle2 {
+    position: absolute;
+    left: 21px;
+    top: 125px;
+    width: 360px;
+    height: 48px;
+    border-radius: 18px;
+    background: #373535;
+    box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.21);
+}
+
+#chevron1 {
+    position: absolute;
+    left: 376px;
+    top: 134px;
+    width: 29px;
+    height: 29px;
+    border-radius: 18px;
+    background: url(../../../../assets/icons/chevron.svg);
+    filter: invert(var(--invertBoolBlack));
+    background-size: 29px 29px;
+    box-shadow: 1px 4px 4px 4px rgba(0,0,0,0.19);
+    transform: rotate(180deg) scaleX(-1);
+}
+
+#ogni5giorni {
+    position: absolute;
+    left: 251px;
+    top: 139px;
+    width: 100px;
+    height: 21px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    white-space: nowrap;
+    text-align: center;
+    color: #a9a9a9;
+}
+
+#backupautomatico {
+    position: absolute;
+    left: 37px;
+    top: 139px;
+    width: 194px;
+    height: 20px;
+    font-family: 'Alexandria';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 2.2px;
+    white-space: nowrap;
+    color: #ffffff;
+}
+
+#rectangle1 {
+    position: absolute;
+    left: 21px;
+    top: 197px;
+    width: 360px;
+    height: 48px;
+    border-radius: 18px;
+    background: #373535;
+    box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.21);
+}
+
+#eseguibackup {
+    position: absolute;
+    left: 125px;
+    top: 211px;
+    width: 152px;
+    height: 20px;
+    font-family: 'Alexandria';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 2.2px;
+    white-space: nowrap;
+    color: #ffffff;
+}
+
+#caricamento {
+    position: absolute;
+    left: 342px;
+    top: 204px;
+    width: 34px;
+    height: 34px;
+    /*background: url('8c43dc3bb3d591f4d8e9a38c53ac1ffdd1431a53.webp');*/
+    background: url('../../../../assets/placeholder.svg');
+    background-size: 34px 34px;
+}
+
+#rectangle0 {
+    position: absolute;
+    left: 21px;
+    top: 269px;
+    width: 360px;
+    height: 48px;
+    border-radius: 18px;
+    background: #373535;
+    box-shadow: 0px 0px 9px 4px rgba(0,0,0,0.21);
+}
+
+#chevron0 {
+    position: absolute;
+    left: 376px;
+    top: 278px;
+    width: 29px;
+    height: 29px;
+    border-radius: 18px;
+    background: url('../../../../assets/icons/chevron.svg');
+    filter: invert(var(--invertBoolBlack));
+    background-size: 29px 29px;
+    box-shadow: 1px 4px 4px 4px rgba(0,0,0,0.19);
+    transform: rotate(180deg) scaleX(-1);
+}
+
+#informazionisulbecku {
+    position: absolute;
+    left: 37px;
+    top: 283px;
+    width: 244px;
+    height: 20px;
+    font-family: 'Alexandria';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 2.2px;
+    white-space: nowrap;
+    color: #ffffff;
+}
+
+#backupdeidati {
+    position: absolute;
+    left: 26px;
+    top: 199px;
+    width: 41px;
+    height: 41px;
+    /*background: url('ba0c0e7fd5d8e4de09cd4385afa108d38354ecb8.webp');*/
+    background: url('../../../../assets/placeholder.svg');
+    background-size: 41px 41px;
+}

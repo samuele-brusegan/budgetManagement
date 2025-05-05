@@ -12,9 +12,7 @@
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />
-    <orderEntry type="library" name="alpinejs" level="application" />
-    <orderEntry type="library" name="chart.js" level="application" />
-    <orderEntry type="library" name="swiper" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="@popperjs/core" level="application" />
   </component>
 </module>
